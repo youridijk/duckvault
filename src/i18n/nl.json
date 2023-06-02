@@ -1,0 +1,11 @@
+{
+  "navigation": {
+    "issues": "Uitgaven",
+    "home": "Thuis"
+  },
+  "search": {
+    "searchBarText": "Typ iets om te zoeken"
+  },
+  "loading": "Laden...",
+  "tappedIssues": "Jouw getapte uitgaven"
+}

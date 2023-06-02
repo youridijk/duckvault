@@ -1,0 +1,32 @@
+{
+  "root": true,
+  "extends": "@react-native-community",
+  "ignorePatterns": [
+    "dist"
+  ],
+  "rules": {
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "indent": ["off", 2, { "SwitchCase": 1 }],
+    "semi": ["error"],
+    "comma-dangle": ["warn", "always-multiline"],
+    "dot-notation": "off",
+    "eqeqeq": "warn",
+    "curly": ["warn", "all"],
+    "brace-style": ["warn"],
+    "prefer-arrow-callback": ["warn"],
+    "max-len": ["warn", 140],
+    "no-console": ["warn"], // use the provided Homebridge log method instead
+    "no-non-null-assertion": ["off"],
+    "comma-spacing": ["error"],
+    "no-multi-spaces": ["warn", { "ignoreEOLComments": true }],
+    "no-trailing-spaces": ["off"],
+    "lines-between-class-members": ["warn", "always", {"exceptAfterSingleLine": true}],
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/semi": ["warn"],
+    "@typescript-eslint/member-delimiter-style": ["warn"],
+    "@typescript-eslint/no-empty-function": ["off"]
+  }
+}

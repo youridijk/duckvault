@@ -1,0 +1,11 @@
+{
+  "navigation": {
+    "issues": "Issues",
+    "home": "Home"
+  },
+  "search": {
+    "searchBarText": "Type something to search"
+  },
+  "loading": "Loading...",
+  "tappedIssues": "Your tapped issues"
+}
