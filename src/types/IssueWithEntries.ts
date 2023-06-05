@@ -5,6 +5,7 @@ export default interface IssueWithEntries extends Issue {
     title: string;
     reallytitle: boolean;
     printedhero: string;
+    image_urls: string;
     storyversion: {
       storyversioncode: string;
       kind: string;

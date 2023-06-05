@@ -1,9 +1,8 @@
-import {Issue} from '../types/Issue';
+import Issue from '../types/Issue';
 import text from '../styles/Text';
 import React, {useContext} from 'react';
 import {Dimensions, Image, Text, TouchableHighlight, View} from 'react-native';
 import {IssuesContext} from '../state/IssuesContext';
-import AutoHeightImage from 'react-native-auto-height-image';
 import Settings from '../Settings';
 import colors from '../styles/Colors';
 
