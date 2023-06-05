@@ -1,5 +1,5 @@
-import en from './en.json';
-import nl from './nl.json';
+import en from './translations/en.json';
+import nl from './translations/nl.json';
 
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';

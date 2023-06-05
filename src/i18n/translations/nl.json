@@ -1,7 +1,8 @@
 {
   "navigation": {
     "issues": "Uitgaven",
-    "home": "Thuis"
+    "home": "Thuis",
+    "search": "Search"
   },
   "search": {
     "searchBarText": "Typ iets om te zoeken"

@@ -1,7 +1,8 @@
 {
   "navigation": {
     "issues": "Issues",
-    "home": "Home"
+    "home": "Home",
+    "search": "Search"
   },
   "search": {
     "searchBarText": "Type something to search"
