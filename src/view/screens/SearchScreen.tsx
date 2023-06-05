@@ -49,7 +49,8 @@ export default function ({navigation}: Props) {
         <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
         <Separator style={{marginHorizontal: 8}} />
         <FlatList
-          data={data!.filter(issue => issue.title.includes(searchTerm))}
+          // data={data!.filter(issue => issue.title.includes(searchTerm))}
+          data={data}
           renderItem={_renderItem}
           ItemSeparatorComponent={Separator}
           scrollEnabled={true}
