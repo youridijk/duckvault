@@ -14,9 +14,9 @@ import {useTranslation} from 'react-i18next';
 import HomeScreen from './HomeScreen';
 import SearchStackScreen from '../navigationstacks/SearchStackScreen';
 
-const Tab = createBottomTabNavigator();
 
 export default function () {
+  const Tab = createBottomTabNavigator();
   const {t} = useTranslation();
 
   function _homeIcon({focused, color}: {focused: boolean; color: string}) {
@@ -52,11 +52,11 @@ export default function () {
           fontWeight: 'bold',
         },
       }}>
-      <Tab.Screen
-        name={t('navigation.home')}
-        component={HomeScreen}
-        options={{tabBarIcon: _homeIcon}}
-      />
+      {/*<Tab.Screen*/}
+      {/*  name={t('navigation.home')}*/}
+      {/*  component={HomeScreen}*/}
+      {/*  options={{tabBarIcon: _homeIcon}}*/}
+      {/*/>*/}
       <Tab.Screen
         name={t('navigation.issues')}
         component={SearchStackScreen}
