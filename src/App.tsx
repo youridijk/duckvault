@@ -9,6 +9,7 @@ import TabBar from './view/screens/TabBar';
 import {useFlipper} from '@react-navigation/devtools';
 
 import './i18n/index';
+import Theme from './styles/Theme';
 
 const queryClient = new QueryClient();
 
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <NavigationContainer>
+      <NavigationContainer theme={Theme}>
         <IssuesListProvider>
           <TabBar />
         </IssuesListProvider>

@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {FlatList, Text, TouchableHighlight, View} from 'react-native';
 import Separator from '../../components/generic/Separator';
 import Issue from '../../types/Issue';
-import IssueTileFullWidth from '../../components/IssueTileFullWidth';
 import {useIssues} from '../../queryHooks/Issues';
 import text from '../../styles/Text';
 import {useTranslation} from 'react-i18next';
@@ -10,6 +9,7 @@ import SearchBar from '../../components/SearchBar';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {SearchStackParamList} from '../../types/navigation/SearchStackParamList';
 import colors from '../../styles/Colors';
+import ContentTileFullWidth from '../../components/ContentTileFullWidth';
 
 type Props = NativeStackScreenProps<SearchStackParamList, 'Search'>;
 
@@ -30,7 +30,7 @@ export default function ({navigation}: Props) {
   function _renderItem({item}: {item: Issue}) {
     return (
       <TouchableHighlight onPress={() => onPress(item)}>
-        <IssueTileFullWidth issue={item} />
+        <ContentTileFullWidth title={item.title} secondText={item.filledoldestdate} imageUrl={item.image_urls[0]} />
       </TouchableHighlight>
     );
   }

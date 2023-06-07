@@ -9,6 +9,10 @@ export default interface IssueWithEntries extends Issue {
     storyversion: {
       storyversioncode: string;
       kind: string;
+      storydescription: {
+        languagecode: string;
+        desctext: string;
+      }[];
       story: {
         storycode: string;
         firstpublicationdate: string;
@@ -17,4 +21,4 @@ export default interface IssueWithEntries extends Issue {
       };
     };
   }[];
-};
+}
