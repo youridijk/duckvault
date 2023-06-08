@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { PropsWithChildren, ReactNode, useState } from 'react';
 import { Pressable, PressableProps, StyleSheet, Text, View } from 'react-native';
 import colors from '../styles/Colors';
 
@@ -15,43 +15,57 @@ const style = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
+  buttonsView: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: colors.black,
+    marginVertical: 10,
+    borderRadius: 10,
+  },
 });
 
-export function TabView(props: { children: ReactNode[] }) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+type TabViewProps = { activeBackgroundColor: string; backgroundColor: string; children: (React.JSX.Element)[] };
 
-  function SwitcherButton(props: PressableProps & { title: string }) {
-    return (
-      <Pressable {...props}>
-        <Text style={style.buttonText}>{props.title}</Text>
-      </Pressable>
-    );
-  }
+export function TabView(props: TabViewProps) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const { children } = props;
 
   return (
     <View>
       <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          backgroundColor: colors.black,
-          marginVertical: 10,
-        }}
+        style={style.buttonsView}
       >
-        <Pressable style={[style.button]}>
-          <Text style={style.buttonText}>Stories</Text>
-        </Pressable>
-        <Pressable style={[style.button]}>
-          <Text style={style.buttonText}>Equivalent</Text>
-        </Pressable>
-      </View>
+        {children.map((child, index) => {
+          if (child.type.name !== TabScreen.name) {
+            throw new Error(`Only ${TabScreen.name} is allowed as child of a ${TabView.name}`);
+          }
 
-      {props.children[1]}
+          return <SwitcherButton
+            key={index}
+            title={child.props.title}
+            onPress={() => setSelectedIndex(index)}
+            style={[style.button, { backgroundColor: index === selectedIndex ? props.activeBackgroundColor : props.backgroundColor }]} />;
+        })}
+      </View>
+      <View>
+        {children[selectedIndex]}
+      </View>
     </View>
   );
 }
 
-export function TabScreen(props: {title: string, })
-{
+export function TabScreen(props: PropsWithChildren<{ title: string; component?: ReactNode }>) {
+  return (
+    <>
+      {props.component == null ? props.children : props.component}
+    </>
+  );
+}
 
+function SwitcherButton(props: PressableProps & { title: string }) {
+  return (
+    <Pressable {...props} >
+      <Text style={style.buttonText}>{props.title}</Text>
+    </Pressable>
+  );
 }
