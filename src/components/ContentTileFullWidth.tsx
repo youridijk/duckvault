@@ -2,7 +2,7 @@ import React from 'react';
 import text from '../styles/Text';
 import { Text, TouchableHighlight, TouchableWithoutFeedbackProps, View } from 'react-native';
 import colors from '../styles/Colors';
-import ProxiedImage from './generic/ProxiedImage';
+import ScaledImage from './ScaledImage';
 
 type Props = {
   title: string;
@@ -10,10 +10,11 @@ type Props = {
   thirdText?: string;
   imageUri?: string;
   imageProxyOptions?: string;
+  imageDesiredWidth?: number;
   onPress?: TouchableWithoutFeedbackProps['onPress'];
 };
 
-export default function({ title, secondText, thirdText, imageUri, imageProxyOptions, onPress }: Props) {
+export default function({ title, secondText, thirdText, imageUri, imageProxyOptions, imageDesiredWidth, onPress }: Props) {
 
   function _main() {
     return (
@@ -27,18 +28,19 @@ export default function({ title, secondText, thirdText, imageUri, imageProxyOpti
         }}
       >
         {imageUri ?
-          <ProxiedImage
+          <ScaledImage
             style={{ width: 100, minHeight: 150 }}
             resizeMode={'contain'}
             source={{ uri: imageUri }}
             proxyOptions={imageProxyOptions ?? '200x'}
+            desiredWidth={imageDesiredWidth ?? 200}
           /> : null
         }
-        <View style={{ justifyContent: 'center', marginLeft: 12, flexShrink: 1 }}>
+        <View style={{ justifyContent: 'center', marginLeft: 12, flexShrink: 1, gap: 5}}>
           <Text style={text.h3}>{title}</Text>
-          <Text style={[text.normal]}>{secondText}</Text>
+          <Text style={text.normal}>{secondText}</Text>
 
-          {thirdText ? <Text style={[text.normal, { marginTop: 10 }]}>{thirdText}</Text> : null}
+          {thirdText ? <Text style={text.normal}>{thirdText}</Text> : null}
         </View>
       </View>
     );

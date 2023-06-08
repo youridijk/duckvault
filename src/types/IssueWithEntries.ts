@@ -1,6 +1,9 @@
 import Issue from './Issue';
 
 export default interface IssueWithEntries extends Issue {
+  equiv_count: {
+    equiv_count: number;
+  }[];
   entry: {
     title: string;
     reallytitle: boolean;

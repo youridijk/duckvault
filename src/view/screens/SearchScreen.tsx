@@ -1,22 +1,22 @@
-import React, {useState} from 'react';
-import {FlatList, Text, TouchableHighlight, View} from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, Text, TouchableHighlight, View } from 'react-native';
 import Separator from '../../components/generic/Separator';
 import Issue from '../../types/Issue';
-import {useIssues} from '../../queryHooks/Issues';
+import { useIssues } from '../../queryHooks/Issues';
 import text from '../../styles/Text';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import SearchBar from '../../components/SearchBar';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {SearchStackParamList} from '../../types/navigation/SearchStackParamList';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { SearchStackParamList } from '../../types/navigation/SearchStackParamList';
 import colors from '../../styles/Colors';
 import ContentTileFullWidth from '../../components/ContentTileFullWidth';
 
 type Props = NativeStackScreenProps<SearchStackParamList, 'Search'>;
 
-export default function ({navigation}: Props) {
-  const {status, data, error, isFetching} = useIssues();
+export default function({ navigation }: Props) {
+  const { status, data, error, isFetching } = useIssues();
   const [searchTerm, setSearchTerm] = useState('');
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   function onPress(issue: Issue) {
     navigation.navigate('IssueDetail', {
@@ -27,11 +27,16 @@ export default function ({navigation}: Props) {
     });
   }
 
-  function _renderItem({item}: {item: Issue}) {
+  function _renderItem({ item }: { item: Issue }) {
     return (
-      <TouchableHighlight onPress={() => onPress(item)}>
-        <ContentTileFullWidth title={item.title} secondText={item.filledoldestdate} imageUrl={item.image_urls[0]} />
-      </TouchableHighlight>
+      <ContentTileFullWidth
+        title={item.title}
+        secondText={item.filledoldestdate}
+        imageUri={item.image_urls[0]}
+        imageDesiredWidth={100}
+        imageProxyOptions={'200x'}
+        onPress={() => onPress(item)}
+      />
     );
   }
 
@@ -45,9 +50,9 @@ export default function ({navigation}: Props) {
     }
 
     return (
-      <View style={{flex: 1, backgroundColor: colors.background}}>
+      <View style={{ flex: 1, backgroundColor: colors.background }}>
         <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
-        <Separator style={{marginHorizontal: 8}} />
+        <Separator style={{ marginHorizontal: 8 }} />
         <FlatList
           // data={data!.filter(issue => issue.title.includes(searchTerm))}
           data={data}
