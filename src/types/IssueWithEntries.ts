@@ -2,6 +2,7 @@ import Issue from './Issue';
 
 export default interface IssueWithEntries extends Issue {
   equiv_count: {
+    equivid: number;
     equiv_count: number;
   }[];
   entry: {

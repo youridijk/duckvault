@@ -5,7 +5,7 @@ import IssueWithEntries from '../types/IssueWithEntries';
 import issue from './issue.json';
 
 export default function useIssue(issueCode: string) {
-  const url = `${settings.postgrestUrl}/issue_with_images?issuecode=eq.${issueCode}&select=*,equiv_count(equiv_count),publication(title),entry(title,reallytitle,printedhero, storyversion(storyversioncode,kind,story!fk_storyversion_storycode_storycode(storycode,firstpublicationdate,storycomment, title), storydescription(languagecode, desctext)))&entry.storyversion.storydescription.languagecode=eq.en`;
+  const url = `${settings.postgrestUrl}/issue_with_images?issuecode=eq.${issueCode}&select=*,equiv_count(equivid, equiv_count),publication(title),entry(title,reallytitle,printedhero, storyversion(storyversioncode,kind,story!fk_storyversion_storycode_storycode(storycode,firstpublicationdate,storycomment, title), storydescription(languagecode, desctext)))&entry.storyversion.storydescription.languagecode=eq.en`;
 
   return useQuery<IssueWithEntries, Error>({
     queryKey: ['issue', issueCode],
