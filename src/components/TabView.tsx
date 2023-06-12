@@ -24,7 +24,12 @@ const style = StyleSheet.create({
   },
 });
 
-type TabViewProps = { activeBackgroundColor: string; backgroundColor: string; children: (React.JSX.Element)[] };
+type TabScreenProps = PropsWithChildren<{ title: string; component?: ReactNode }>;
+type TabViewProps = {
+  activeBackgroundColor: string;
+  backgroundColor: string;
+  children: (React.JSX.Element | null)[];
+};
 
 export function TabView(props: TabViewProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -36,7 +41,12 @@ export function TabView(props: TabViewProps) {
         style={style.buttonsView}
       >
         {children.map((child, index) => {
-          if (child.type.name !== TabScreen.name) {
+          if (!child) {
+            return;
+          }
+
+          const childElementType = child.type as React.JSXElementConstructor<TabScreenProps>;
+          if (childElementType.name !== TabScreen.name) {
             throw new Error(`Only ${TabScreen.name} is allowed as child of a ${TabView.name}`);
           }
 
@@ -54,7 +64,7 @@ export function TabView(props: TabViewProps) {
   );
 }
 
-export function TabScreen(props: PropsWithChildren<{ title: string; component?: ReactNode }>) {
+export function TabScreen(props: TabScreenProps) {
   return (
     <>
       {props.component == null ? props.children : props.component}

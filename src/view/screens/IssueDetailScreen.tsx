@@ -1,4 +1,4 @@
-import { FlatList, ScrollView, View } from 'react-native';
+import { FlatList, ScrollView, Text, View } from 'react-native';
 import React, { useEffect } from 'react';
 import { SearchStackParamList } from '../../types/navigation/SearchStackParamList';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -69,10 +69,14 @@ export default function({ route, navigation }: Props) {
               scrollEnabled={false}
             />
           </TabScreen>
-          <TabScreen title={'Equivalents'}>
-            <EquivalentsList issueCode={issue.issueCode} />
-          </TabScreen>
+          {data!.equiv_count.length ?
+            <TabScreen title={'Equivalents'}>
+              <EquivalentsList issueCode={issue.issueCode} />
+            </TabScreen>
+            : null
+          }
         </TabView>
+        {/*<MYTabs/>*/}
       </ScrollView>
     );
   }
