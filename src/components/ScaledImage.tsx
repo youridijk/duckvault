@@ -19,7 +19,7 @@ export default function(props: Props) {
   }
 
   const { uri } = props.source;
-  const proxiedUri = `${Settings.imageProxyUrl}/${proxyOptions}/${uri}`;
+  const proxiedUri = `${Settings.imageProxyUrl}/${proxyOptions}/${uri}&normalsize=1`;
   console.log(proxiedUri);
 
   Image.getSize(proxiedUri, (width, height) => {

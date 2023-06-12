@@ -6,6 +6,6 @@ type Props = ImageProps & { proxyOptions: string; source: ImageURISource };
 
 export default function(props: Props) {
   const { source, proxyOptions } = props;
-  const proxiedUri = `${Settings.imageProxyUrl}/${proxyOptions}/${source.uri}`;
+  const proxiedUri = `${Settings.imageProxyUrl}/${proxyOptions}/${source.uri}&normalsize=1`;
   return <Image {...props} source={{ uri: proxiedUri }} />;
 }
