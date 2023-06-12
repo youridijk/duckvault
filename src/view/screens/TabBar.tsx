@@ -1,6 +1,6 @@
 import colors from '../../styles/Colors';
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   HomeIcon as HomeIconOutline,
   MagnifyingGlassIcon as MagnifyingGlassIconOutLine,
@@ -9,7 +9,7 @@ import {
   HomeIcon as HomeIconSolid,
   MagnifyingGlassIcon as MagnifyingGlassIconSolid,
 } from 'react-native-heroicons/solid';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import HomeScreen from './HomeScreen';
 import SearchStackScreen from '../navigationstacks/SearchStackScreen';
@@ -19,11 +19,11 @@ export default function () {
   const Tab = createBottomTabNavigator();
   const {t} = useTranslation();
 
-  function _homeIcon({focused, color}: {focused: boolean; color: string}) {
+  function _homeIcon({ focused, color }: { focused: boolean; color: string }) {
     return focused ? <HomeIconSolid color={color} /> : <HomeIconOutline />;
   }
 
-  function _searchIcon({focused, color}: {focused: boolean; color: string}) {
+  function _searchIcon({ focused, color }: { focused: boolean; color: string }) {
     return focused ? (
       <MagnifyingGlassIconSolid color={color} />
     ) : (
@@ -60,7 +60,7 @@ export default function () {
       <Tab.Screen
         name={t('navigation.issues')}
         component={SearchStackScreen}
-        options={{tabBarIcon: _searchIcon}}
+        options={{ tabBarIcon: _searchIcon }}
       />
     </Tab.Navigator>
   );
