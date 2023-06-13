@@ -12,7 +12,6 @@ export default function (props: {
   return (
     <TextInput
       style={{
-        color: 'white',
         fontSize: 17,
         padding: 12,
         backgroundColor: colors.white,

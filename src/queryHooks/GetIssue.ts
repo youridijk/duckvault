@@ -17,8 +17,12 @@ export default function useIssue(issueCode: string) {
       const response = await fetch(url, {
         headers,
       });
-      return response.json();
-      // return issue as unknown as IssueWithEntries;
+
+      if (response.ok) {
+        return response.json();
+      }
+
+      return Promise.reject(response);
     },
   });
 }
