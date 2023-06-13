@@ -18,6 +18,11 @@ export default interface Issue {
   inxforbidden: boolean;
   inputfilecode: number;
   maintenanceteamcode: string;
-  image_urls: string[];
+  image_urls: IssueImageUrl[];
   publication: {title: string};
+}
+
+interface IssueImageUrl {
+  entrycode: string;
+  fullurl: string;
 }

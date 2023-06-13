@@ -52,7 +52,9 @@ export default function({ route, navigation }: Props) {
             gap: 10,
           }}
         >
-          {data!.image_urls[0] ? <ScaledImage source={{ uri: data!.image_urls[0] }} desiredWidth={150} proxyOptions={'200x'} /> : null}
+          {data!.image_urls[0] ?
+            <ScaledImage source={{ uri: data!.image_urls[0].fullurl }} desiredWidth={150} proxyOptions={'200x'} />
+            : null}
           <View style={{ flexShrink: 1, gap: 10 }}>
             <H2>{data!.title}</H2>
             <H4>{data!.publication.title + ' ' + data!.issuenumber}</H4>

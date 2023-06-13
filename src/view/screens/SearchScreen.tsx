@@ -32,7 +32,7 @@ export default function({ navigation }: Props) {
       <ContentTileFullWidth
         title={item.title}
         secondText={item.filledoldestdate}
-        imageUri={item.image_urls[0]}
+        imageUri={item.image_urls[0].fullurl}
         imageDesiredWidth={100}
         imageProxyOptions={'200x'}
         onPress={() => onPress(item)}
