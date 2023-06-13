@@ -22,7 +22,8 @@ export default interface Issue {
   publication: {title: string};
 }
 
-interface IssueImageUrl {
+export interface IssueImageUrl {
   entrycode: string;
   fullurl: string;
+  proxied_url: string;
 }
