@@ -2,7 +2,9 @@
   "navigation": {
     "issues": "Issues",
     "home": "Home",
-    "search": "Search"
+    "search": "Search",
+    "stories": "Stories",
+    "equivalents": "Equivalents"
   },
   "search": {
     "searchBarText": "Type something to search"

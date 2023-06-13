@@ -2,7 +2,9 @@
   "navigation": {
     "issues": "Uitgaven",
     "home": "Thuis",
-    "search": "Search"
+    "search": "Search",
+    "stories": "Verhalen",
+    "equivalents": "Soortgelijke"
   },
   "search": {
     "searchBarText": "Typ iets om te zoeken"

@@ -24,7 +24,7 @@ type Props = NativeStackScreenProps<SearchStackParamList, 'IssueDetail'>;
 export default function({ route, navigation }: Props) {
   const issue = route.params.issue;
   const { status, data, error, isFetching } = useIssue(issue.issueCode);
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     navigation.setOptions({
@@ -57,28 +57,31 @@ export default function({ route, navigation }: Props) {
             : null}
           <View style={{ flexShrink: 1, gap: 10 }}>
             <H2>{data!.title}</H2>
-            <H4>{data!.publication.title + ' ' + data!.issuenumber}</H4>
+            <H4>{data!.publication?.title + ' ' + data!.issuenumber}</H4>
             <P>{data!.filledoldestdate}</P>
           </View>
         </View>
 
         <TabView backgroundColor={colors.black} activeBackgroundColor={colors.primary}>
-          <TabScreen title={'Issues'}>
-            <FlatList
-              data={data!.entry}
-              renderItem={_renderItem}
-              ItemSeparatorComponent={Separator}
-              scrollEnabled={false}
-            />
-          </TabScreen>
+          {
+            data!.entry.length ?
+              <TabScreen title={t('stories', { keyPrefix: 'navigation' })}>
+                <FlatList
+                  data={data!.entry}
+                  renderItem={_renderItem}
+                  ItemSeparatorComponent={Separator}
+                  scrollEnabled={false}
+                />
+              </TabScreen>
+              : null
+          }
           {data!.equiv_count.length ?
-            <TabScreen title={'Equivalents'}>
+            <TabScreen title={t('equivalents', { keyPrefix: 'navigation' })}>
               <EquivalentsList issueCode={issue.issueCode} />
             </TabScreen>
             : null
           }
         </TabView>
-        {/*<MYTabs/>*/}
       </ScrollView>
     );
   }
@@ -87,8 +90,8 @@ export default function({ route, navigation }: Props) {
     return (
       <ContentTileFullWidth
         title={item.title}
-        secondText={item.storyversion.story.firstpublicationdate}
-        thirdText={item.storyversion.storydescription[0]?.desctext}
+        secondText={item.storyversion?.story?.firstpublicationdate}
+        thirdText={item.storyversion?.storydescription[0]?.desctext}
       />
     );
   }
