@@ -1,4 +1,10 @@
 {
   "name": "inducks",
-  "displayName": "inducks"
+  "displayName": "inducks",
+  "web": {
+    "favicon": "./assets/favicon.png",
+    "build": {
+      "publicPath": "/react/"
+    }
+  }
 }

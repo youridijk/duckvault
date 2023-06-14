@@ -12,10 +12,12 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2EB50B2BF2945E898727A9BC /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B1EB2E0A9D80196CF2AEF9 /* ExpoModulesProvider.swift */; };
 		7699B88040F8A987B510C191 /* libPods-inducks-inducksTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-inducks-inducksTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		C7FB02272A1FE5FB0047E63D /* en.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7FB02292A1FE5FB0047E63D /* en.strings */; };
 		C7FB022C2A1FE60E0047E63D /* nl.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7FB022E2A1FE60E0047E63D /* nl.strings */; };
+		DB0268948F3CE77EAF01A633 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F5DE253F6814FC7B83D48 /* ExpoModulesProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,7 @@
 		00E356EE1AD99517003FC87E /* inducksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inducksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* inducksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inducksTests.m; sourceTree = "<group>"; };
+		104F5DE253F6814FC7B83D48 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-inducks-inducksTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* inducks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inducks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = inducks/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = inducks/AppDelegate.mm; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 		C7FB02282A1FE5FB0047E63D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/en.strings; sourceTree = "<group>"; };
 		C7FB022D2A1FE60E0047E63D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/nl.strings; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F8B1EB2E0A9D80196CF2AEF9 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-inducks/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,15 @@
 				00E356F11AD99517003FC87E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		115A24B85DE21CF96691DA05 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				EC9B521950013573A97EDC80 /* inducks */,
+				ABD8D57D529076C2D27CA3F9 /* inducksTests */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* inducks */ = {
@@ -127,6 +140,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				115A24B85DE21CF96691DA05 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -140,6 +154,14 @@
 				00E356EE1AD99517003FC87E /* inducksTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		ABD8D57D529076C2D27CA3F9 /* inducksTests */ = {
+			isa = PBXGroup;
+			children = (
+				104F5DE253F6814FC7B83D48 /* ExpoModulesProvider.swift */,
+			);
+			name = inducksTests;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -160,6 +182,14 @@
 				C7FB022E2A1FE60E0047E63D /* nl.strings */,
 			);
 			path = Localizations;
+			sourceTree = "<group>";
+		};
+		EC9B521950013573A97EDC80 /* inducks */ = {
+			isa = PBXGroup;
+			children = (
+				F8B1EB2E0A9D80196CF2AEF9 /* ExpoModulesProvider.swift */,
+			);
+			name = inducks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* inducksTests.m in Sources */,
+				DB0268948F3CE77EAF01A633 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +462,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				2EB50B2BF2945E898727A9BC /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +506,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = inducksTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,6 +517,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/inducks.app/inducks";
@@ -498,7 +531,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = inducksTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,6 +542,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/inducks.app/inducks";
@@ -535,6 +569,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youridijk.inducks;
 				PRODUCT_NAME = inducks;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -562,6 +597,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youridijk.inducks;
 				PRODUCT_NAME = inducks;
 				SWIFT_VERSION = 5.0;
@@ -618,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -683,7 +719,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
