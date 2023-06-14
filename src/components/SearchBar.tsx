@@ -20,6 +20,7 @@ export default function (props: {
       value={props.searchTerm}
       placeholder={t('search.searchBarText') as string}
       placeholderTextColor="grey"
+      autoCorrect={false}
     />
   );
 }

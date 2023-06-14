@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
-import { FlatList, Platform, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { FlatList, View } from 'react-native';
 import Separator from '../../components/generic/Separator';
-import Issue from '../../types/Issue';
-import { useIssues } from '../../queryHooks/Issues';
-import text from '../../styles/Text';
-import { useTranslation } from 'react-i18next';
 import SearchBar from '../../components/SearchBar';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SearchStackParamList } from '../../types/navigation/SearchStackParamList';
 import colors from '../../styles/Colors';
 import ContentTileFullWidth from '../../components/ContentTileFullWidth';
 
-import useSearchIssues from '../../queryHooks/search/SearchIssues';
+import { searchWithLibrary } from '../../queryHooks/search/SearchIssues';
 import MeilisearchIssue from '../../types/meilisearch/MeilisearchIssue';
-import LoadingScreen from '../../components/LoadingScreen';
 import ErrorScreen from '../../components/ErrorScreen';
+import { useTranslation } from 'react-i18next';
 
 type Props = NativeStackScreenProps<SearchStackParamList, 'Search'>;
 
 export default function({ navigation }: Props) {
   const [searchQuery, setSearchQuery] = useState('');
-  const { status, data, error, isFetching } = useSearchIssues(searchQuery);
+  // const { status, data, error, isFetching } = useSearchIssues(searchQuery);
+  const [results, setResults] = useState<MeilisearchIssue[]>([]);
+  const [error, setError] = useState(null);
+  const { i18n } = useTranslation();
 
+  useEffect(() => {
+    searchWithLibrary(searchQuery, i18n.resolvedLanguage)
+      .then((search) => {
+        setResults(search.hits);
+      })
+      .catch(setError);
+  }, [searchQuery]);
 
   function onPress(issue: MeilisearchIssue) {
     navigation.navigate('IssueDetail', {
@@ -40,6 +46,7 @@ export default function({ navigation }: Props) {
             <ContentTileFullWidth
               title={item.full_title}
               secondText={item.filledoldestdate}
+              // disable images as this causes to many requests to Inducks
               // imageUri={item.image_urls[0].fullurl}
               imageDesiredWidth={100}
               imageProxyOptions={'200x'}
@@ -57,17 +64,13 @@ export default function({ navigation }: Props) {
   }
 
   function IssuesList() {
-    if (isFetching) {
-      return <LoadingScreen />;
-    }
-
-    if (status === 'error') {
+    if (error) {
       return <ErrorScreen error={error} />;
     }
 
     return (
       <FlatList
-        data={data!.hits}
+        data={results}
         renderItem={_renderItem}
         ItemSeparatorComponent={Separator}
         scrollEnabled={true}
