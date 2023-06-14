@@ -2,10 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import settings from '../../Settings';
 import MeilisearchResponse from '../../types/meilisearch/MeilisearchResponse';
 import MeilisearchIssue from '../../types/meilisearch/MeilisearchIssue';
-import { MEILISEARCH_MASTER_KEY } from '@env';
 import { useTranslation } from 'react-i18next';
 import meilisearch from '../../clients/Meilisearch';
-import { SearchParams } from 'meilisearch';
+import { MeiliSearch, SearchParams } from 'meilisearch';
 
 export default function useSearchIssues(searchQuery: string) {
   const { i18n } = useTranslation();
@@ -15,6 +14,20 @@ export default function useSearchIssues(searchQuery: string) {
     queryFn: () => searchWithLibrary(searchQuery, i18n.resolvedLanguage),
   });
 }
+
+
+// Only create the client once
+const client = new MeiliSearch({
+  host: settings.meilisearchUrl,
+  apiKey: process.env.MEILISEARCH_SEARCH_KEY,
+});
+
+function searchTest(searchQuery: string) {
+  return client
+    .index<MeilisearchIssue>('issues')
+    .search(searchQuery);
+}
+
 
 export async function searchWithLibrary(searchQuery: string, language?: string) {
   const options: SearchParams = {
@@ -34,7 +47,7 @@ async function searchWithFetch(searchQuery: string, language?: string): Promise<
   const url = `${settings.meilisearchUrl}/indexes/issues/search`;
   const headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + MEILISEARCH_MASTER_KEY,
+    'Authorization': 'Bearer ' + process.env.MEILISEARCH_SEARCH_KEY,
   };
 
   const body = {

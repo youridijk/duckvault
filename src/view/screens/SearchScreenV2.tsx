@@ -1,5 +1,4 @@
 import settings from '../../Settings';
-import { MEILISEARCH_MASTER_KEY } from '@env';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SearchStackParamList } from '../../types/navigation/SearchStackParamList';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
@@ -19,7 +18,7 @@ export default function(props: Props) {
   const { i18n } = useTranslation();
   const searchClient = instantMeiliSearch(
     settings.meilisearchUrl,
-    MEILISEARCH_MASTER_KEY,
+    process.env.MEILISEARCH_SEARCH_KEY
   );
 
   const [searchQuery, setSearchQuery] = useState('');

@@ -1,10 +1,9 @@
 import { MeiliSearch } from 'meilisearch';
-import { MEILISEARCH_MASTER_KEY } from '@env';
 import settings from '../Settings';
 
 const client = new MeiliSearch({
   host: settings.meilisearchUrl,
-  apiKey: MEILISEARCH_MASTER_KEY,
+  apiKey: process.env.MEILISEARCH_SEARCH_KEY,
 });
 
 export default client;
