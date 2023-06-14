@@ -6,7 +6,7 @@ import MeilisearchIssue from '../../types/meilisearch/MeilisearchIssue';
 import { InstantSearch, connectSearchBox, connectInfiniteHits, Configure } from 'react-instantsearch-native';
 import { FlatList, TextInput } from 'react-native';
 import React, { useState } from 'react';
-import 'react-native-url-polyfill/auto';
+// import 'react-native-url-polyfill/auto';
 import colors from '../../styles/Colors';
 import { useTranslation } from 'react-i18next';
 import ContentTileFullWidth from '../../components/ContentTileFullWidth';
@@ -18,33 +18,30 @@ export default function(props: Props) {
   const { i18n } = useTranslation();
   const searchClient = instantMeiliSearch(
     settings.meilisearchUrl,
-    process.env.MEILISEARCH_SEARCH_KEY
+    process.env.MEILISEARCH_SEARCH_KEY,
   );
 
-  const [searchQuery, setSearchQuery] = useState('');
+  // const [searchQuery, setSearchQuery] = useState('');
 
   // https://github.com/algolia/react-instantsearch/issues/1123
+  let searchQuery = '';
   return (
     <InstantSearch
       indexName="issues" searchClient={searchClient}
       onSearchStateChange={searchState => {
-        console.log(searchState.query);
+        // console.log(searchQuery);
+        // console.log(searchState.query);
+        searchQuery = searchState.query;
         // setSearchQuery(searchState.query ?? '');
       }}
     >
       <CustomSearchBox />
       <CustomInfiniteHits />
       {searchQuery === '' ?
-        // filledoldestdate != 9999-12-31',
-        <Configure filters={'languagecode = ' + i18n.resolvedLanguage} />
+        <Configure filters={'filledoldestdate != 9999-12-31 AND languagecode = ' + i18n.resolvedLanguage} sortBy={'filledoldestdate:desc'} />
         :
-        <>
-          <Configure filters={'issuerangecode IS NULL'} sortBy={'filledoldestdate:desc'}  sort={'filledoldestdate:desc'}  />
-          <Configure filters={' languagecode = nl'} sortBy={'filledoldestdate:desc'}  />
-        </>
+        <Configure filters={'issuerangecode IS NULL'} />
       }
-
-      <Configure sortBy={'filledoldestdate:desc'} />
     </InstantSearch>
   );
 }
