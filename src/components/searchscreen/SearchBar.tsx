@@ -1,7 +1,7 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {TextInput} from 'react-native';
-import colors from '../styles/Colors';
+import colors from '../../styles/Colors';
 
 export default function (props: {
   searchTerm: string;

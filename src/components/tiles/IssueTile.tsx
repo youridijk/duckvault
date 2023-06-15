@@ -1,10 +1,10 @@
-import Issue from '../types/Issue';
-import text from '../styles/Text';
+import Issue from '../../types/Issue';
+import text from '../../styles/Text';
 import React, {useContext} from 'react';
 import {Dimensions, Image, Text, TouchableHighlight, View} from 'react-native';
-import {IssuesContext} from '../state/IssuesContext';
-import Settings from '../Settings';
-import colors from '../styles/Colors';
+import {IssuesContext} from '../../state/IssuesContext';
+import Settings from '../../Settings';
+import colors from '../../styles/Colors';
 
 export default function (props: {issue: Issue}) {
   const [issuesList, setIssuesList] = useContext(IssuesContext);

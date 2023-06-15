@@ -1,8 +1,8 @@
 import React from 'react';
-import text from '../styles/Text';
+import text from '../../styles/Text';
 import { Text, TouchableHighlight, TouchableWithoutFeedbackProps, View } from 'react-native';
-import colors from '../styles/Colors';
-import ScaledImage from './ScaledImage';
+import colors from '../../styles/Colors';
+import ScaledImage from '../generic/images/ScaledImage';
 
 type Props = {
   title: string;

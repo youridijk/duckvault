@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
 import Separator from '../../components/generic/Separator';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../components/searchscreen/SearchBar';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SearchStackParamList } from '../../types/navigation/SearchStackParamList';
 import colors from '../../styles/Colors';
-import ContentTileFullWidth from '../../components/ContentTileFullWidth';
+import ContentTileFullWidth from '../../components/tiles/ContentTileFullWidth';
 
 import { searchWithLibrary } from '../../queryHooks/search/SearchIssues';
 import MeilisearchIssue from '../../types/meilisearch/MeilisearchIssue';
-import ErrorScreen from '../../components/ErrorScreen';
+import ErrorScreen from '../../components/data-fetching/ErrorScreen';
 import { useTranslation } from 'react-i18next';
 
 type Props = NativeStackScreenProps<SearchStackParamList, 'Search'>;

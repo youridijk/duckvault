@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 // import 'react-native-url-polyfill/auto';
 import colors from '../../styles/Colors';
 import { useTranslation } from 'react-i18next';
-import ContentTileFullWidth from '../../components/ContentTileFullWidth';
+import ContentTileFullWidth from '../../components/tiles/ContentTileFullWidth';
 import Separator from '../../components/generic/Separator';
 
 

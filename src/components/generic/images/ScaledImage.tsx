@@ -1,6 +1,6 @@
 import { Image, ImageProps } from 'react-native';
 import { useState } from 'react';
-import Settings from '../Settings';
+import Settings from '../../../Settings';
 import { ImageURISource } from 'react-native/Libraries/Image/ImageSource';
 
 type Props = ImageProps & {

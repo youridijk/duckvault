@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, ReactNode, useState } from 'react';
 import { Pressable, PressableProps, StyleSheet, Text, View } from 'react-native';
-import colors from '../styles/Colors';
+import colors from '../../styles/Colors';
 
 const style = StyleSheet.create({
   button: {
