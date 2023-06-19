@@ -6,5 +6,12 @@
     "build": {
       "publicPath": "/react/"
     }
+  },
+  "expo": {
+    "ios": {
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    }
   }
 }
