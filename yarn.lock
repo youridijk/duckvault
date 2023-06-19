@@ -8080,7 +8080,7 @@ react-instantsearch-native@^6.40.0:
     algoliasearch ">= 3.27.1 < 5"
     react-instantsearch-core "6.40.0"
 
-"react-is@^16.12.0 || ^17.0.0 || ^18.0.0", react-is@^18.0.0, react-is@^18.2.0:
+"react-is@^16.12.0 || ^17.0.0 || ^18.0.0", react-is@^18.0.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
@@ -8112,10 +8112,10 @@ react-native-dotenv@^3.4.8:
   dependencies:
     dotenv "^16.0.3"
 
-react-native-flipper@^0.191.0:
-  version "0.191.0"
-  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.191.0.tgz#5447f49f02d955891667f8c3128fd66e4fabd1c0"
-  integrity sha512-JKi9Fm9lfOboRLf01iKtVbjs1bVHE/63ls+mvjzn6hsNAKXkXVtI5VE0Jb/TDkGtwN1l7e+qMrh0EKhc40Iu8A==
+react-native-flipper@^0.199.0:
+  version "0.199.0"
+  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.199.0.tgz#09ad6b7b5811e2cb361787d73cbd7e7edf1868da"
+  integrity sha512-YnHo04bpXGFU4usfp0RA2juoHdBFLR97BX9RsI53WzmqFD0EYlLC3gEW4GBSXH9eHoy03D1CBxQvF/xIZP3/vg==
 
 react-native-gradle-plugin@^0.71.18:
   version "0.71.18"
@@ -8217,15 +8217,6 @@ react-shallow-renderer@^16.15.0:
   dependencies:
     object-assign "^4.1.1"
     react-is "^16.12.0 || ^17.0.0 || ^18.0.0"
-
-react-test-renderer@18.2.0:
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-18.2.0.tgz#1dd912bd908ff26da5b9fca4fd1c489b9523d37e"
-  integrity sha512-JWD+aQ0lh2gvh4NM3bBM42Kx+XybOxCpgYK7F8ugAlpaTSnWsX+39Z4XkOykGZAHrjwwTZT3x3KxswVWxHPUqA==
-  dependencies:
-    react-is "^18.2.0"
-    react-shallow-renderer "^16.15.0"
-    scheduler "^0.23.0"
 
 react@18.2.0:
   version "18.2.0"
