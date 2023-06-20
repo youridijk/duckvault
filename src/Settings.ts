@@ -6,4 +6,5 @@ export default {
   postgrestUrl: 'https://inducks.dijk.cc/api/postgrest',
   meilisearchUrl: 'https://meilisearch.dijk.cc',
   // meilisearchUrl: 'http://localhost:7700',
+  backendUrl: 'http://localhost:8000/api',
 };

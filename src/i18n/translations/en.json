@@ -6,8 +6,12 @@
     "stories": "Stories",
     "equivalents": "Equivalents"
   },
-  "search": {
-    "searchBarText": "Type something to search"
+  "input": {
+    "username": "Username",
+    "password": "Password",
+    "email": "E-mail",
+    "searchBar": "Type something to search",
+    "login": "Login"
   },
   "loading": "Loading...",
   "tappedIssues": "Your tapped issues",

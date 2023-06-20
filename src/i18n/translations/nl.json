@@ -6,8 +6,12 @@
     "stories": "Verhalen",
     "equivalents": "Soortgelijke"
   },
-  "search": {
-    "searchBarText": "Typ iets om te zoeken"
+  "input": {
+    "username": "Gebruikersnaam",
+    "password": "Wachtwoord",
+    "email": "E-mail",
+    "searchBar": "Typ iets om te zoeken",
+    "login": "Login"
   },
   "loading": "Laden...",
   "tappedIssues": "Jouw getapte uitgaven",

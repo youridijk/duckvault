@@ -5,7 +5,7 @@ import React, {
   SetStateAction,
   useState,
 } from 'react';
-import {Issue} from '../types/Issue';
+import Issue from '../types/Issue';
 
 type State<T> = [T, Dispatch<SetStateAction<T>>];
 

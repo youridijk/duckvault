@@ -18,7 +18,7 @@ export default function (props: {
       }}
       onChangeText={props.setSearchTerm}
       value={props.searchTerm}
-      placeholder={t('search.searchBarText') as string}
+      placeholder={t('input.searchBar') as string}
       placeholderTextColor="grey"
       autoCorrect={false}
     />
