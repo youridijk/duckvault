@@ -1,10 +1,9 @@
 import { PropsWithChildren, useEffect, useState } from 'react';
-import SInfo from 'react-native-sensitive-info';
-
 import AuthContext from './AuthContext';
 import settings from '../../Settings';
 import { User, Credentials } from '../../types/Auth';
 import { AUTH_STATUS, AuthStatus } from '../../types/AuthStatus';
+import { getStoredToken, storedAuthToken, deleteStoredAuthToken } from './Storage';
 
 export default function(props: PropsWithChildren) {
   const [user, setUser] = useState<User>();
@@ -14,7 +13,6 @@ export default function(props: PropsWithChildren) {
   useEffect(() => {
     getStoredToken()
       .then(async token => {
-        console.log('Store ', token);
         if (token) {
           setAuthToken(token);
           try {
@@ -52,8 +50,8 @@ export default function(props: PropsWithChildren) {
     const responseBody = await response.json();
     if (response.ok && responseBody.token) {
       const { token } = responseBody;
-
       const user = await getUserData(token);
+
       setAuthToken(token);
       setAuthStatus(AUTH_STATUS.AUTHENTICATED);
       setUser(user);
@@ -64,7 +62,7 @@ export default function(props: PropsWithChildren) {
     return Promise.reject(responseBody);
   }
 
-  async function logout() {
+  async function logout(): Promise<void> {
     const url = `${settings.backendUrl}/auth/sanctum/logout`;
     const response = await fetch(url, {
       method: 'POST',
@@ -102,18 +100,6 @@ export default function(props: PropsWithChildren) {
     }
 
     return Promise.reject(responseBody);
-  }
-
-  async function getStoredToken() {
-    return SInfo.getItem('token', {});
-  }
-
-  async function storedAuthToken(token: string) {
-    return SInfo.setItem('token', token, {});
-  }
-
-  async function deleteStoredAuthToken() {
-    return SInfo.deleteItem('token', {});
   }
 
   return (
