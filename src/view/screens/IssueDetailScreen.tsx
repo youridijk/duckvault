@@ -9,14 +9,13 @@ import ScaledImage from '../../components/generic/images/ScaledImage';
 import P from '../../components/generic/P';
 import { H2, H4 } from '../../components/generic/Headings';
 import ContentTileFullWidth from '../../components/tiles/ContentTileFullWidth';
-import IssueWithEntries from '../../types/IssueWithEntries';
 import { useTranslation } from 'react-i18next';
 import Separator from '../../components/generic/Separator';
 import { TabScreen, TabView } from '../../components/generic/TabView';
 import colors from '../../styles/Colors';
 import useEquivalents from '../../queryHooks/GetEquivalents';
-import Equivalent from '../../types/Equivalent';
 import { useNavigation } from '@react-navigation/native';
+import { EntryWithImages, Equivalent } from '../../types/db/Custom';
 
 
 type Props = NativeStackScreenProps<SearchStackParamList, 'IssueDetail'>;
@@ -86,12 +85,14 @@ export default function({ route, navigation }: Props) {
     );
   }
 
-  function _renderItem({ item }: { item: IssueWithEntries['entry'][0] }) {
+  function _renderItem({ item }: { item: EntryWithImages }) {
     return (
       <ContentTileFullWidth
-        title={item.title}
+        title={item.title ?? item.storyversion.story.title}
         secondText={item.storyversion?.story?.firstpublicationdate}
         thirdText={item.storyversion?.storydescription[0]?.desctext}
+        imageUri={item?.original_entry_urls?.[0]?.fullurl ?? item?.story_entry_urls?.[0]?.fullurl}
+        imageDesiredWidth={100}
       />
     );
   }

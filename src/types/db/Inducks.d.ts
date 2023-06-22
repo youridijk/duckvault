@@ -1,4 +1,7 @@
 // Generated types for Inducks database
+// Contains only the types of the tables
+import { EquivCount, FullEntryUrl } from './Custom';
+
 export interface Site {
   sitecode: string;
   urlbase: string;
@@ -327,6 +330,8 @@ export interface Issue {
   maintenanceteamcode: string;
   issuerange: Issuerange;
   publication: Publication;
+  equiv_count: EquivCount[];
+  entry: Entry[];
 }
 
 export interface Issuejob {
@@ -408,6 +413,7 @@ export interface Storyversion {
   keywordsummary: string;
   estimatedpanels: number;
   story: Story;
+  storydescription: Storydescription[];
 }
 
 export interface Story {
@@ -514,6 +520,7 @@ export interface Entry {
   issue: Issue;
   storyversion: Storyversion;
   language: Language;
+  full_entryurl: FullEntryUrl[];
 }
 
 export interface Entryurl {
