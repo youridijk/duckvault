@@ -29,8 +29,6 @@ export default function(props: Props) {
     <InstantSearch
       indexName="issues" searchClient={searchClient}
       onSearchStateChange={searchState => {
-        // console.log(searchQuery);
-        // console.log(searchState.query);
         searchQuery = searchState.query;
         // setSearchQuery(searchState.query ?? '');
       }}

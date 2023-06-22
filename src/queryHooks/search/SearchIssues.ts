@@ -12,9 +12,6 @@ export async function searchWithLibrary(searchQuery: string, language?: string, 
       ['issuerangecode IS NULL'],
   };
 
-  console.log(meilisearch);
-  console.log(process.env.MEILISEARCH_SEARCH_KEY);
-
   return meilisearch
     .index<MeilisearchIssue>('issues')
     .search(
