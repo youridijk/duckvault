@@ -15,6 +15,10 @@
   },
   "loading": "Laden...",
   "tappedIssues": "Jouw getapte uitgaven",
+  "search": {
+    "newspapers": "kranten",
+    "advertisement": "reclame"
+  },
   "countryNames": {
     "United Arab Emirates": "Verenigde Arabische Emiraten",
     "Albania": "Albanië",

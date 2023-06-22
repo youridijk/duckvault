@@ -19,10 +19,11 @@ export default function({ navigation }: Props) {
   // const { status, data, error, isFetching } = useSearchIssues(searchQuery);
   const [results, setResults] = useState<MeilisearchIssue[]>([]);
   const [error, setError] = useState(null);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    searchWithLibrary(searchQuery, i18n.resolvedLanguage)
+    const filteredCategories = [ t('search.newspapers'),  t('search.advertisement')];
+    searchWithLibrary(searchQuery, i18n.resolvedLanguage, filteredCategories)
       .then((search) => {
         setResults(search.hits);
       })

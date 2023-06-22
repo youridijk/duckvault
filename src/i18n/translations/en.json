@@ -15,6 +15,10 @@
   },
   "loading": "Loading...",
   "tappedIssues": "Your tapped issues",
+  "search": {
+    "newspapers": "newspapers",
+    "advertisement": "advertisement"
+  },
   "countryNames": {
     "United Arab Emirates": "United Arab Emirates",
     "Albania": "Albania",
