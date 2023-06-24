@@ -1,17 +1,4 @@
 {
   "name": "inducks",
-  "displayName": "inducks",
-  "web": {
-    "favicon": "./assets/favicon.png",
-    "build": {
-      "publicPath": "/react/"
-    }
-  },
-  "expo": {
-    "ios": {
-      "config": {
-        "usesNonExemptEncryption": false
-      }
-    }
-  }
+  "displayName": "inducks"
 }

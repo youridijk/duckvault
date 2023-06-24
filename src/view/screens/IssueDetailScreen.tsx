@@ -88,7 +88,7 @@ export default function({ route, navigation }: Props) {
   function _renderItem({ item }: { item: EntryWithImages }) {
     return (
       <ContentTileFullWidth
-        title={item.title ?? item.storyversion.story.title}
+        title={item?.title ?? item?.storyversion?.story?.title}
         secondText={item.storyversion?.story?.firstpublicationdate}
         thirdText={item.storyversion?.storydescription[0]?.desctext}
         imageUri={item?.original_entry_urls?.[0]?.fullurl ?? item?.story_entry_urls?.[0]?.fullurl}

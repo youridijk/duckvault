@@ -7,16 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00E356F31AD99517003FC87E /* inducksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* inducksTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-inducks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-inducks.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2EB50B2BF2945E898727A9BC /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B1EB2E0A9D80196CF2AEF9 /* ExpoModulesProvider.swift */; };
 		7699B88040F8A987B510C191 /* libPods-inducks-inducksTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-inducks-inducksTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		C7FB02272A1FE5FB0047E63D /* en.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7FB02292A1FE5FB0047E63D /* en.strings */; };
-		C7FB022C2A1FE60E0047E63D /* nl.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7FB022E2A1FE60E0047E63D /* nl.strings */; };
-		DB0268948F3CE77EAF01A633 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F5DE253F6814FC7B83D48 /* ExpoModulesProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +28,8 @@
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* inducksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inducksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		104F5DE253F6814FC7B83D48 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-inducks-inducksTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* inducksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inducksTests.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* inducks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inducks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = inducks/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = inducks/AppDelegate.mm; sourceTree = "<group>"; };
@@ -45,10 +43,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-inducks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-inducks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = inducks/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-inducks-inducksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inducks-inducksTests.release.xcconfig"; path = "Target Support Files/Pods-inducks-inducksTests/Pods-inducks-inducksTests.release.xcconfig"; sourceTree = "<group>"; };
-		C7FB02282A1FE5FB0047E63D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/en.strings; sourceTree = "<group>"; };
-		C7FB022D2A1FE60E0047E63D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/nl.strings; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F8B1EB2E0A9D80196CF2AEF9 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-inducks/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,13 +66,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		115A24B85DE21CF96691DA05 /* ExpoModulesProviders */ = {
+		00E356EF1AD99517003FC87E /* inducksTests */ = {
 			isa = PBXGroup;
 			children = (
-				EC9B521950013573A97EDC80 /* inducks */,
-				ABD8D57D529076C2D27CA3F9 /* inducksTests */,
+				00E356F21AD99517003FC87E /* inducksTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			name = ExpoModulesProviders;
+			path = inducksTests;
+			sourceTree = "<group>";
+		};
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F11AD99517003FC87E /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* inducks */ = {
@@ -113,13 +116,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				C7FB02242A1FE5AF0047E63D /* Localizations */,
 				13B07FAE1A68108700A75B9A /* inducks */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* inducksTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
-				115A24B85DE21CF96691DA05 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,14 +137,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ABD8D57D529076C2D27CA3F9 /* inducksTests */ = {
-			isa = PBXGroup;
-			children = (
-				104F5DE253F6814FC7B83D48 /* ExpoModulesProvider.swift */,
-			);
-			name = inducksTests;
-			sourceTree = "<group>";
-		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,23 +146,6 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-inducks-inducksTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		C7FB02242A1FE5AF0047E63D /* Localizations */ = {
-			isa = PBXGroup;
-			children = (
-				C7FB02292A1FE5FB0047E63D /* en.strings */,
-				C7FB022E2A1FE60E0047E63D /* nl.strings */,
-			);
-			path = Localizations;
-			sourceTree = "<group>";
-		};
-		EC9B521950013573A97EDC80 /* inducks */ = {
-			isa = PBXGroup;
-			children = (
-				F8B1EB2E0A9D80196CF2AEF9 /* ExpoModulesProvider.swift */,
-			);
-			name = inducks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +218,6 @@
 			knownRegions = (
 				en,
 				Base,
-				nl,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -266,8 +242,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7FB02272A1FE5FB0047E63D /* en.strings in Resources */,
-				C7FB022C2A1FE60E0047E63D /* nl.strings in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -430,7 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB0268948F3CE77EAF01A633 /* ExpoModulesProvider.swift in Sources */,
+				00E356F31AD99517003FC87E /* inducksTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +414,6 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				2EB50B2BF2945E898727A9BC /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,25 +427,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		C7FB02292A1FE5FB0047E63D /* en.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C7FB02282A1FE5FB0047E63D /* en */,
-			);
-			name = en.strings;
-			sourceTree = "<group>";
-		};
-		C7FB022E2A1FE60E0047E63D /* nl.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C7FB022D2A1FE60E0047E63D /* nl */,
-			);
-			name = nl.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -484,7 +438,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = inducksTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -495,7 +449,6 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/inducks.app/inducks";
@@ -509,7 +462,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = inducksTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,7 +473,6 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/inducks.app/inducks";
@@ -534,7 +486,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4VTB4459DD;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = inducks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -547,8 +498,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.youridijk.inducks;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = inducks;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -563,7 +513,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4VTB4459DD;
 				INFOPLIST_FILE = inducks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -575,8 +524,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = com.youridijk.inducks;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = inducks;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -632,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -644,6 +592,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -697,7 +646,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -708,6 +657,7 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
