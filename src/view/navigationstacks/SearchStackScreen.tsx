@@ -15,7 +15,11 @@ export default function() {
 
   return (
     <Stack.Navigator
-      screenOptions={StackScreenOptions}>
+      screenOptions={{
+        ...StackScreenOptions,
+        headerBackTitle: t('navigation.back') as string,
+      }}
+    >
       <Stack.Screen
         name="Search"
         options={{
