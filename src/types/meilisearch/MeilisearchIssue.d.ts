@@ -1,7 +1,7 @@
 import { IssueImageUrl } from '../Issue';
 
 export default interface MeilisearchIssue {
-  id: string,
+  id: string;
   issuecode: string;
   issuerangecode?: string;
   publicationcode: string;

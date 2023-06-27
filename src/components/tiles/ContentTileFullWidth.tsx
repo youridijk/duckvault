@@ -3,6 +3,7 @@ import text from '../../styles/Text';
 import { Text, TouchableHighlight, TouchableWithoutFeedbackProps, View } from 'react-native';
 import colors from '../../styles/Colors';
 import ScaledImage from '../generic/images/ScaledImage';
+import ProxiedImage from '../generic/images/ProxiedImage';
 
 type Props = {
   title: string;
@@ -15,7 +16,6 @@ type Props = {
 };
 
 export default function({ title, secondText, thirdText, imageUri, imageProxyOptions, imageDesiredWidth, onPress }: Props) {
-
   function _main() {
     return (
       <View
@@ -25,18 +25,20 @@ export default function({ title, secondText, thirdText, imageUri, imageProxyOpti
           paddingHorizontal: 8,
           paddingVertical: 16,
           backgroundColor: colors.background,
+          flex: 1,
+          flexGrow: 1
         }}
       >
         {imageUri ?
           <ScaledImage
-            style={{ width: 100, minHeight: 150 }}
+            // style={{ width: 100, minHeight: 150 }}
             resizeMode={'contain'}
             source={{ uri: imageUri }}
             proxyOptions={imageProxyOptions ?? '200x'}
             desiredWidth={imageDesiredWidth ?? 200}
           /> : null
         }
-        <View style={{ justifyContent: 'center', marginLeft: 12, flexShrink: 1, gap: 5}}>
+        <View style={{ justifyContent: 'center', marginLeft: 12, flexShrink: 1, gap: 5, flex: 1}}>
           <Text style={text.h3}>{title}</Text>
           <Text style={text.normal}>{secondText}</Text>
 

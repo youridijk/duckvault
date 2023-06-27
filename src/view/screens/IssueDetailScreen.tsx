@@ -16,6 +16,7 @@ import colors from '../../styles/Colors';
 import useEquivalents from '../../queryHooks/GetEquivalents';
 import { useNavigation } from '@react-navigation/native';
 import { EntryWithImages, Equivalent } from '../../types/db/Custom';
+import If from '../../components/generic/basics/If';
 
 
 type Props = NativeStackScreenProps<SearchStackParamList, 'IssueDetail'>;

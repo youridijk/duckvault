@@ -22,7 +22,7 @@ export default function({ navigation }: Props) {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    const filteredCategories = [ t('search.newspapers'),  t('search.advertisement')];
+    const filteredCategories = [t('search.newspapers'), t('search.advertisement')];
     searchWithLibrary(searchQuery, i18n.resolvedLanguage, filteredCategories)
       .then((search) => {
         setResults(search.hits);
