@@ -1,21 +1,22 @@
 import React from 'react';
 import text from '../../styles/Text';
-import { Text, TouchableHighlight, TouchableWithoutFeedbackProps, View } from 'react-native';
+import { Text, TouchableHighlight, View } from 'react-native';
 import colors from '../../styles/Colors';
 import ScaledImage from '../generic/images/ScaledImage';
+import { ContentTileFullWidthProps } from '../../types/types';
+import If from '../generic/basics/If';
 import ProxiedImage from '../generic/images/ProxiedImage';
 
-type Props = {
-  title: string;
-  secondText: string;
-  thirdText?: string;
-  imageUri?: string;
-  imageProxyOptions?: string;
-  imageDesiredWidth?: number;
-  onPress?: TouchableWithoutFeedbackProps['onPress'];
-};
-
-export default function({ title, secondText, thirdText, imageUri, imageProxyOptions, imageDesiredWidth, onPress }: Props) {
+export default function({
+  title,
+  secondText,
+  thirdText,
+  imageUri,
+  imageProxyOptions,
+  onPress,
+  imageDesiredWidth,
+  imageDesiredHeight,
+}: ContentTileFullWidthProps) {
   function _main() {
     return (
       <View
@@ -26,24 +27,32 @@ export default function({ title, secondText, thirdText, imageUri, imageProxyOpti
           paddingVertical: 16,
           backgroundColor: colors.background,
           flex: 1,
-          flexGrow: 1
+          flexGrow: 1,
+          gap: 10,
         }}
       >
-        {imageUri ?
-          <ScaledImage
-            // style={{ width: 100, minHeight: 150 }}
-            resizeMode={'contain'}
-            source={{ uri: imageUri }}
-            proxyOptions={imageProxyOptions ?? '200x'}
-            desiredWidth={imageDesiredWidth ?? 200}
-          /> : null
-        }
-        <View style={{ justifyContent: 'center', marginLeft: 12, flexShrink: 1, gap: 5, flex: 1}}>
+
+        <View style={{ justifyContent: 'center', flexShrink: 1, gap: 5, flex: 1 }}>
           <Text style={text.h3}>{title}</Text>
           <Text style={text.normal}>{secondText}</Text>
 
-          {thirdText ? <Text style={text.normal}>{thirdText}</Text> : null}
+          <If statement={!!thirdText}>
+            <Text style={text.normal}>{thirdText}</Text>
+          </If>
         </View>
+        <If statement={!!imageUri}>
+          <ProxiedImage
+            resizeMode={'contain'}
+            source={{ uri: imageUri}}
+            proxyOptions={imageProxyOptions ?? '200x'}
+            style={{
+              width: imageDesiredWidth,
+              height: imageDesiredWidth! * 1.5,
+            }}
+            desiredWidth={imageDesiredWidth}
+            desiredHeight={imageDesiredHeight}
+          />
+        </If>
       </View>
     );
   }

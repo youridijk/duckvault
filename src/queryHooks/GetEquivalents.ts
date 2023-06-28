@@ -7,8 +7,10 @@ export default function useEquivalents(issueCode: string) {
 
   return useQuery<Equivalent[], Error>({
     queryKey: ['issue_equivalents', issueCode],
-    queryFn: async () => {
-      const response = await fetch(url);
+    queryFn: async ({signal}) => {
+      const response = await fetch(url, {
+        signal,
+      });
       return response.json();
     },
   });

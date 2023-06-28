@@ -1,40 +1,41 @@
-import { Image, ImageProps } from 'react-native';
 import { useState } from 'react';
-import Settings from '../../../Settings';
-import { ImageURISource } from 'react-native/Libraries/Image/ImageSource';
-
-type Props = ImageProps & {
-  desiredWidth: number;
-  proxyOptions: string;
-  source: ImageURISource;
-};
+import ProxiedImage from './ProxiedImage';
+import { ScaledImageProps } from '../../../types/types';
 
 // credits to https://stackoverflow.com/a/51897371/8882270
-export default function(props: Props) {
-  const { desiredWidth, proxyOptions } = props;
-  const [desiredHeight, setDesiredHeight] = useState(0);
+export default function(props: ScaledImageProps) {
+  const uri = props.source.uri!;
 
-  if (!props.source.uri) {
-    throw Error('Uri needs to be provided');
-  }
-
-  const { uri } = props.source;
-  const proxiedUri = `${Settings.imageProxyUrl}/${proxyOptions}/${uri}&normalsize=1`;
-
-  Image.getSize(proxiedUri, (width, height) => {
-    setDesiredHeight((desiredWidth / width) * height);
-  });
+  // 1.3 is based on story image from a pocket. The 1.3 is to prevent glitching
+  const [desiredHeight, setDesiredHeight] = useState(
+    // props.desiredHeight ?? (props.desiredWidth ?? 0) * 1.1,
+    0,
+  );
+  const [desiredWidth, setDesiredWidth] = useState(
+    props.desiredWidth ?? (props.desiredHeight ?? 0) / 1.3,
+  );
 
   return (
-    <Image
+    <ProxiedImage
       {...props}
-      source={{ uri: proxiedUri }}
+      onLoad={({ nativeEvent: { width, height } }) => {
+        console.log('load ', uri);
+
+        // console.log(props.desiredWidth);
+        if (props.desiredWidth) {
+          const calculatedHeight = (desiredWidth / width) * height;
+          setDesiredHeight(calculatedHeight);
+        } else {
+          const calculatedWidth = (desiredHeight / height) * width;
+          setDesiredWidth(calculatedWidth);
+        }
+      }}
       style={[
         props.style,
         {
-          borderWidth: 1,
           width: desiredWidth,
           height: desiredHeight,
+          display: desiredHeight === 0 ? 'none' : 'flex',
         }]}
     />
   );

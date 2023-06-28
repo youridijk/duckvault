@@ -16,7 +16,6 @@ import colors from '../../styles/Colors';
 import useEquivalents from '../../queryHooks/GetEquivalents';
 import { useNavigation } from '@react-navigation/native';
 import { EntryWithImages, Equivalent } from '../../types/db/Custom';
-import If from '../../components/generic/basics/If';
 
 
 type Props = NativeStackScreenProps<SearchStackParamList, 'IssueDetail'>;
@@ -41,6 +40,9 @@ export default function({ route, navigation }: Props) {
       return <ErrorScreen error={error} />;
     }
 
+    // console.log(data!.entry.splice(0, 2).map(e => e.title))
+    console.log(data!.entry.map(e => e.title));
+
     return (
       <ScrollView
         contentContainerStyle={{ padding: 10, gap: 10 }}
@@ -53,7 +55,15 @@ export default function({ route, navigation }: Props) {
           }}
         >
           {data!.image_urls[0] ?
-            <ScaledImage source={{ uri: data!.image_urls[0].fullurl }} desiredWidth={150} proxyOptions={'200x'} />
+            <ScaledImage
+              source={{ uri: data!.image_urls[0].fullurl }}
+              // style={{
+              //   width: 150,
+              // height: 150 * 1,
+              //  }}
+              desiredWidth={150}
+              proxyOptions={'200x'}
+              resizeMode={'contain'} />
             : null}
           <View style={{ flexShrink: 1, gap: 10 }}>
             <H2>{data!.title}</H2>
@@ -65,9 +75,9 @@ export default function({ route, navigation }: Props) {
         <TabView backgroundColor={colors.black} activeBackgroundColor={colors.primary}>
           {
             data!.entry.length ?
-              <TabScreen title={t('stories', { keyPrefix: 'navigation' })}>
+              <TabScreen title={t('navigation.stories')}>
                 <FlatList
-                  data={data!.entry}
+                  data={data!.entry.slice(0, 100)}
                   renderItem={_renderItem}
                   ItemSeparatorComponent={Separator}
                   scrollEnabled={false}
@@ -76,7 +86,7 @@ export default function({ route, navigation }: Props) {
               : null
           }
           {data!.equiv_count.length ?
-            <TabScreen title={t('equivalents', { keyPrefix: 'navigation' })}>
+            <TabScreen title={t('navigation.equivalents')}>
               <EquivalentsList issueCode={issue.issueCode} />
             </TabScreen>
             : null
@@ -94,6 +104,9 @@ export default function({ route, navigation }: Props) {
         thirdText={item.storyversion?.storydescription[0]?.desctext}
         imageUri={item?.original_entry_urls?.[0]?.fullurl ?? item?.story_entry_urls?.[0]?.fullurl}
         imageDesiredWidth={100}
+        imageProxyOptions={'200x'}
+        // imageProxyOptions={'200x'}
+        // imageDesiredHeight={150}
       />
     );
   }

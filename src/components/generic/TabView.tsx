@@ -40,7 +40,7 @@ export function TabView(props: TabViewProps) {
       <View
         style={style.buttonsView}
       >
-        {children.map((child, index) => {
+        {children?.map((child, index) => {
           if (!child) {
             return;
           }

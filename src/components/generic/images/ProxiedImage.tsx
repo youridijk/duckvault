@@ -1,11 +1,15 @@
-import { Image, ImageProps } from 'react-native';
 import Settings from '../../../Settings';
 import { ImageURISource } from 'react-native/Libraries/Image/ImageSource';
+import FastImage from 'react-native-fast-image';
+import { ProxiedImageProps } from '../../../types/types';
 
-type Props = ImageProps & { proxyOptions: string; source: ImageURISource };
 
-export default function(props: Props) {
+export default function(props: ProxiedImageProps) {
+  if (!props.source.uri) {
+    throw Error('Uri needs to be provided');
+  }
+
   const { source, proxyOptions } = props;
   const proxiedUri = `${Settings.imageProxyUrl}/${proxyOptions}/${source.uri}&normalsize=1`;
-  return <Image {...props} source={{ uri: proxiedUri }} />;
+  return <FastImage {...props} source={{ uri: proxiedUri }} />;
 }
