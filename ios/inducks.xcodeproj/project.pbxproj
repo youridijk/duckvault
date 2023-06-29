@@ -14,6 +14,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-inducks-inducksTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-inducks-inducksTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C74286BB2A4D9E59006C3E8F /* nl.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74286BD2A4D9E59006C3E8F /* nl.strings */; };
+		C74286C02A4D9E92006C3E8F /* en.strings in Resources */ = {isa = PBXBuildFile; fileRef = C74286C22A4D9E92006C3E8F /* en.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-inducks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-inducks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = inducks/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-inducks-inducksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inducks-inducksTests.release.xcconfig"; path = "Target Support Files/Pods-inducks-inducksTests/Pods-inducks-inducksTests.release.xcconfig"; sourceTree = "<group>"; };
+		C74286BC2A4D9E59006C3E8F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/nl.strings; sourceTree = "<group>"; };
+		C74286C12A4D9E92006C3E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/en.strings; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -116,6 +120,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C74286B82A4D9800006C3E8F /* Localizations */,
 				13B07FAE1A68108700A75B9A /* inducks */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* inducksTests */,
@@ -146,6 +151,15 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-inducks-inducksTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C74286B82A4D9800006C3E8F /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				C74286BD2A4D9E59006C3E8F /* nl.strings */,
+				C74286C22A4D9E92006C3E8F /* en.strings */,
+			);
+			path = Localizations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +232,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -243,6 +258,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				C74286C02A4D9E92006C3E8F /* en.strings in Resources */,
+				C74286BB2A4D9E59006C3E8F /* nl.strings in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +443,25 @@
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C74286BD2A4D9E59006C3E8F /* nl.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C74286BC2A4D9E59006C3E8F /* nl */,
+			);
+			name = nl.strings;
+			sourceTree = "<group>";
+		};
+		C74286C22A4D9E92006C3E8F /* en.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C74286C12A4D9E92006C3E8F /* en */,
+			);
+			name = en.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
