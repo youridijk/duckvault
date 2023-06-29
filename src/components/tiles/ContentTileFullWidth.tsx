@@ -16,6 +16,7 @@ export default function({
   onPress,
   imageDesiredWidth,
   imageDesiredHeight,
+  imageFetchPriority,
 }: ContentTileFullWidthProps) {
   function _main() {
     return (
@@ -43,14 +44,14 @@ export default function({
         <If statement={!!imageUri}>
           <ProxiedImage
             resizeMode={'contain'}
-            source={{ uri: imageUri}}
+            source={{ uri: imageUri, priority: imageFetchPriority }}
             proxyOptions={imageProxyOptions ?? '200x'}
             style={{
               width: imageDesiredWidth,
               height: imageDesiredWidth! * 1.5,
             }}
             desiredWidth={imageDesiredWidth}
-            desiredHeight={imageDesiredHeight}
+            // desiredHeight={imageDesiredHeight}
           />
         </If>
       </View>

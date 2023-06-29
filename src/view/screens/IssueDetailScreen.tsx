@@ -16,6 +16,7 @@ import colors from '../../styles/Colors';
 import useEquivalents from '../../queryHooks/GetEquivalents';
 import { useNavigation } from '@react-navigation/native';
 import { EntryWithImages, Equivalent } from '../../types/db/Custom';
+import ProxiedImage from '../../components/generic/images/ProxiedImage';
 
 
 type Props = NativeStackScreenProps<SearchStackParamList, 'IssueDetail'>;
@@ -40,9 +41,6 @@ export default function({ route, navigation }: Props) {
       return <ErrorScreen error={error} />;
     }
 
-    // console.log(data!.entry.splice(0, 2).map(e => e.title))
-    console.log(data!.entry.map(e => e.title));
-
     return (
       <ScrollView
         contentContainerStyle={{ padding: 10, gap: 10 }}
@@ -56,19 +54,21 @@ export default function({ route, navigation }: Props) {
         >
           {data!.image_urls[0] ?
             <ScaledImage
-              source={{ uri: data!.image_urls[0].fullurl }}
+              source={{ uri: data!.image_urls[0].fullurl, priority: 'high' }}
               // style={{
               //   width: 150,
-              // height: 150 * 1,
-              //  }}
+              // height: 150 * 1.2,
+              //   overflow: 'visible'
+              //               }}
+
               desiredWidth={150}
               proxyOptions={'200x'}
-              resizeMode={'contain'} />
+              resizeMode={'cover'} />
             : null}
           <View style={{ flexShrink: 1, gap: 10 }}>
             <H2>{data!.title}</H2>
             <H4>{data!.publication?.title + ' ' + data!.issuenumber}</H4>
-            <P>{data!.filledoldestdate}</P>
+            <P>{data!.oldestdate}</P>
           </View>
         </View>
 
@@ -96,7 +96,7 @@ export default function({ route, navigation }: Props) {
     );
   }
 
-  function _renderItem({ item }: { item: EntryWithImages }) {
+  function _renderItem({ index, item }: { index: number, item: EntryWithImages }) {
     return (
       <ContentTileFullWidth
         title={item?.title ?? item?.storyversion?.story?.title}
@@ -105,6 +105,7 @@ export default function({ route, navigation }: Props) {
         imageUri={item?.original_entry_urls?.[0]?.fullurl ?? item?.story_entry_urls?.[0]?.fullurl}
         imageDesiredWidth={100}
         imageProxyOptions={'200x'}
+        imageFetchPriority={index < 3 ? 'high' : 'low'}
         // imageProxyOptions={'200x'}
         // imageDesiredHeight={150}
       />

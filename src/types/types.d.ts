@@ -1,17 +1,16 @@
-import { FastImageProps } from 'react-native-fast-image';
+import { FastImageProps, Priority, Source } from 'react-native-fast-image';
 import { ImageURISource } from 'react-native/Libraries/Image/ImageSource';
 import { TouchableWithoutFeedbackProps } from 'react-native';
 
-export type ProxiedImageProps = FastImageProps & {
+export type ProxiedImageProps = Omit<FastImageProps, 'source'> & {
   proxyOptions: string;
-  source: ImageURISource;
+  source: Source;
 };
 
 export type ScaledImageProps = ProxiedImageProps & {
   desiredWidth?: number;
   desiredHeight?: number;
   proxyOptions: string;
-  source: ImageURISource;
 };
 
 export type ContentTileFullWidthProps = {
@@ -22,5 +21,6 @@ export type ContentTileFullWidthProps = {
   imageProxyOptions?: string;
   imageDesiredWidth?: number;
   imageDesiredHeight?: number;
+  imageFetchPriority?: Priority;
   onPress?: TouchableWithoutFeedbackProps['onPress'];
 };
