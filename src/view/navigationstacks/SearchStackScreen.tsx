@@ -24,11 +24,14 @@ export default function() {
         name="Search"
         options={{
           title: t('navigation.search') as string,
+          navigationBarHidden: true,
+          headerTransparent: false,
+          headerBackTitleVisible: false,
+          // headerShown: false,
           headerRight: () => (
             <Button
               onPress={logout}
               title="Logout"
-              color="#fff"
             />
           ),
         }}

@@ -58,9 +58,10 @@ export default function () {
       {/*  options={{tabBarIcon: _homeIcon}}*/}
       {/*/>*/}
       <Tab.Screen
-        name={t('navigation.issues')}
+        name='SearchStack'
         component={SearchStackScreen}
-        options={{ tabBarIcon: _searchIcon }}
+        options={{ tabBarIcon: _searchIcon, title: t('navigation.search') as string}}
+
       />
     </Tab.Navigator>
   );

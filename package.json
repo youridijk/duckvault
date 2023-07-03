@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android:release": "yarn android --mode=release",
     "ios": "react-native run-ios",
+    "ios:release": "NO_FLIPPER=1 pod install --project-directory=ios && yarn ios --mode=Release",
     "lint": "eslint .",
     "start": "react-native start",
-    "build:android": "react-native build-android --mode=release",
     "doctor": "react-native doctor"
   },
   "dependencies": {

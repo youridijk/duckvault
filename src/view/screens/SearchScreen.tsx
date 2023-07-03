@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, SafeAreaView, View } from 'react-native';
 import Separator from '../../components/generic/Separator';
 import SearchBar from '../../components/searchscreen/SearchBar';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -21,14 +21,31 @@ export default function({ navigation }: Props) {
   const [error, setError] = useState(null);
   const { t, i18n } = useTranslation();
 
-  useEffect(() => {
+
+  function search(text: string) {
     const filteredCategories = [t('search.newspapers'), t('search.advertisement')];
-    searchWithLibrary(searchQuery, i18n.resolvedLanguage, filteredCategories)
+    searchWithLibrary(text, i18n.resolvedLanguage, filteredCategories)
       .then((search) => {
         setResults(search.hits);
       })
       .catch(setError);
+  }
+
+  useEffect(() => {
+    search(searchQuery);
   }, [searchQuery]);
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerSearchBarOptions: {
+        onChangeText: (event) => search(event.nativeEvent.text),
+        autoCapitalize: 'none',
+        barTintColor: colors.white,
+        placeholder: t('input.searchBar') as string,
+        hideWhenScrolling: false,
+      },
+    });
+  }, [navigation]);
 
   function onPress(issue: MeilisearchIssue) {
     navigation.navigate('IssueDetail', {
@@ -75,17 +92,18 @@ export default function({ navigation }: Props) {
         renderItem={_renderItem}
         ItemSeparatorComponent={Separator}
         scrollEnabled={true}
+        contentInsetAdjustmentBehavior="automatic"
       />
     );
   }
 
   function render() {
     return (
-      <View style={{ flex: 1, backgroundColor: colors.background }}>
-        <SearchBar setSearchTerm={setSearchQuery} searchTerm={searchQuery} />
-        <Separator style={{ marginHorizontal: 8 }} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
+        {/*<SearchBar setSearchTerm={setSearchQuery} searchTerm={searchQuery} />*/}
+        {/*<Separator style={{ marginHorizontal: 8 }} />*/}
         <IssuesList />
-      </View>
+      </SafeAreaView>
     );
   }
 
