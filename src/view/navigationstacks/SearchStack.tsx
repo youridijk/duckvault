@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SearchStackParamList } from '../../types/navigation/SearchStackParamList';
+import { SearchStackParamList } from '../../types/Navigation';
 import IssueDetailScreen from '../screens/IssueDetailScreen';
 import SearchScreen from '../screens/SearchScreen';
 import StackScreenOptions from '../../options/StackScreenOptions';
@@ -24,10 +24,6 @@ export default function() {
         name="Search"
         options={{
           title: t('navigation.search') as string,
-          navigationBarHidden: true,
-          headerTransparent: false,
-          headerBackTitleVisible: false,
-          // headerShown: false,
           headerRight: () => (
             <Button
               onPress={logout}

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { H2, H3 } from '../../components/generic/Headings';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { LoginStackParamList } from '../../types/navigation/LoginStackParamList';
+import { LoginStackParamList } from '../../types/Navigation';
 import colors from '../../styles/Colors';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';

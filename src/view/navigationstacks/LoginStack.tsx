@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { LoginStackParamList } from '../../types/navigation/LoginStackParamList';
+import { LoginStackParamList } from '../../types/Navigation';
 import LoginScreen from '../screens/LoginScreen';
 import TabBar from '../screens/TabBar';
 

@@ -1,6 +1,6 @@
 import { FlatList, ScrollView, Text, View } from 'react-native';
 import React, { useEffect } from 'react';
-import { SearchStackParamList } from '../../types/navigation/SearchStackParamList';
+import { SearchStackParamList } from '../../types/Navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import useIssue from '../../queryHooks/GetIssue';
 import LoadingScreen from '../../components/data-fetching/LoadingScreen';

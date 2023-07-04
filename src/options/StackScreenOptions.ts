@@ -7,4 +7,4 @@ export default {
   headerTitleStyle: {
     color: colors.white,
   },
-} as NativeStackNavigationOptions;
+} satisfies NativeStackNavigationOptions;

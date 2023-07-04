@@ -6,9 +6,10 @@
     "android": "react-native run-android",
     "android:release": "yarn android --mode=release",
     "ios": "react-native run-ios",
-    "ios:release": "NO_FLIPPER=1 pod install --project-directory=ios && yarn ios --mode=Release",
-    "lint": "eslint .",
+    "ios:release": "NO_FLIPPER=1 yarn pod:install && yarn ios --mode=Release",
+    "pod:install": "pod install --project-directory=ios",
     "start": "react-native start",
+    "lint": "eslint .",
     "doctor": "react-native doctor"
   },
   "dependencies": {

@@ -1,19 +1,19 @@
-import React, {View} from 'react-native';
+import React, { StyleSheet, View, ViewStyle } from 'react-native';
+import colors from '../../styles/Colors';
 
 export default function (props: {
-  height?: number;
   margin?: number;
-  style?: any;
+  style?: ViewStyle;
 }) {
   return (
     <View
       style={[
-        {
-          height: props.height ?? 0.5,
-          backgroundColor: 'grey',
-          margin: props.margin,
-        },
         props.style,
+        {
+          borderColor: colors.grey,
+          margin: props.margin,
+          borderBottomWidth: StyleSheet.hairlineWidth,
+        },
       ]}
     />
   );
