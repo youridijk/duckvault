@@ -5,7 +5,9 @@
     "home": "Home",
     "search": "Search",
     "stories": "Stories",
-    "equivalents": "Equivalents"
+    "equivalents": "Equivalents",
+    "profile": "Profile",
+    "privateCollection": "Private collection"
   },
   "input": {
     "username": "Username",
@@ -19,6 +21,17 @@
   "search": {
     "newspapers": "newspapers",
     "advertisement": "advertisement"
+  },
+  "profile": {
+    "followers": "Followers",
+    "following": "Following",
+    "privateCollection": "Your private collection",
+    "buttons": {
+      "privateCollection": "Private collection",
+      "wishlist": "Wishlist",
+      "favorites": "Favorites",
+      "lists": "Lists"
+    }
   },
   "countryNames": {
     "United Arab Emirates": "United Arab Emirates",

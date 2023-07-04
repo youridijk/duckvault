@@ -1,6 +1,6 @@
 import { FastImageProps, Priority, Source } from 'react-native-fast-image';
-import { ImageURISource } from 'react-native/Libraries/Image/ImageSource';
-import { TouchableWithoutFeedbackProps } from 'react-native';
+import { PressableProps, TouchableWithoutFeedbackProps } from 'react-native';
+import { ProfileStackParamList } from './Navigation';
 
 export type ProxiedImageProps = Omit<FastImageProps, 'source'> & {
   proxyOptions: string;
@@ -24,3 +24,11 @@ export type ContentTileFullWidthProps = {
   imageFetchPriority?: Priority;
   onPress?: TouchableWithoutFeedbackProps['onPress'];
 };
+
+export type ActionButton = {
+  title: string;
+  icon: JSX.Element;
+  routeName?: keyof ProfileStackParamList;
+};
+
+export type ActionButtonProps = PressableProps & ActionButton;

@@ -5,7 +5,9 @@
     "home": "Thuis",
     "search": "Zoeken",
     "stories": "Verhalen",
-    "equivalents": "Soortgelijke"
+    "equivalents": "Soortgelijke",
+    "profile": "Profiel",
+    "privateCollection": "Privé verzameling"
   },
   "input": {
     "username": "Gebruikersnaam",
@@ -19,6 +21,17 @@
   "search": {
     "newspapers": "kranten",
     "advertisement": "reclame"
+  },
+  "profile": {
+    "followers": "Volgers",
+    "following": "Volgend",
+    "privateCollection": "Jouw privé verzameling",
+    "buttons": {
+      "privateCollection": "Privé verzameling",
+      "wishlist": "Wensenlijst",
+      "favorites": "Favorieten",
+      "lists": "Lijsten"
+    }
   },
   "countryNames": {
     "United Arab Emirates": "Verenigde Arabische Emiraten",
