@@ -36,8 +36,7 @@ const styleSheet = StyleSheet.create({
     justifyContent: 'center',
   },
   separator: {
-    marginLeft: '2%',
-    marginRight: '2%',
+    width: '98%',
   },
 });
 

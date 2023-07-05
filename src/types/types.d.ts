@@ -1,6 +1,7 @@
 import { FastImageProps, Priority, Source } from 'react-native-fast-image';
 import { PressableProps, TouchableWithoutFeedbackProps } from 'react-native';
 import { ProfileStackParamList } from './Navigation';
+import { ReactNode } from 'react';
 
 export type ProxiedImageProps = Omit<FastImageProps, 'source'> & {
   proxyOptions: string;
@@ -14,9 +15,9 @@ export type ScaledImageProps = ProxiedImageProps & {
 };
 
 export type ContentTileFullWidthProps = {
-  title: string;
-  secondText: string;
-  thirdText?: string;
+  title: ReactNode;
+  secondText: ReactNode;
+  thirdText?: ReactNode;
   imageUri?: string;
   imageProxyOptions?: string;
   imageDesiredWidth?: number;

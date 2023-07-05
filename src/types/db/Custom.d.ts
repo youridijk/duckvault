@@ -22,6 +22,7 @@ export interface IssueWithImages extends Issue {
 // Issue type for the issue detail page
 export interface IssueDetailPageIssue extends IssueWithImages {
   entry: EntryWithImages[];
+  userOwnsIssue: boolean;
 }
 
 export interface Equivalent {
@@ -33,7 +34,4 @@ export interface Equivalent {
 
 export interface IssueImage extends FullEntryUrl {
   issuecode: string;
-}
-export interface LaravelIssue extends Issue {
-  images: IssueImage[];
 }

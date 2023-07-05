@@ -1,6 +1,6 @@
 import settings from '../Settings';
 import {useQuery} from '@tanstack/react-query';
-import Issue from '../types/Issue';
+import { Issue } from '../types/db/Inducks';
 
 const url = `${settings.postgrestUrl}/issue_with_images?select=*,publication(title)&publicationcode=eq.nl/PO3&order=filledoldestdate.desc&limit=10&offset=100&pages=neq.1`;
 

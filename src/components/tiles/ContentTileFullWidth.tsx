@@ -18,6 +18,10 @@ export default function({
   imageDesiredHeight,
   imageFetchPriority,
 }: ContentTileFullWidthProps) {
+  if (!imageDesiredWidth && !imageDesiredHeight) {
+    throw Error('imageDesiredWidth or imageDesiredHeight must be defined');
+  }
+
   function _main() {
     return (
       <View
@@ -50,7 +54,7 @@ export default function({
               width: imageDesiredWidth,
               height: imageDesiredWidth! * 1.5,
             }}
-            desiredWidth={imageDesiredWidth}
+            // desiredWidth={imageDesiredWidth}
             // desiredHeight={imageDesiredHeight}
           />
         </If>
