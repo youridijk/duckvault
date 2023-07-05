@@ -3,11 +3,11 @@ import useAuth from '../../state/auth/useAuth';
 import { ActivityIndicator, FlatList, SafeAreaView, StyleSheet, View } from 'react-native';
 import colors from '../../styles/Colors';
 import { useTranslation } from 'react-i18next';
-import usePrivateCollectionProfile from '../../queryHooks/GetPrivateCollectionProfile';
-import { IssueWithImages } from '../../types/db/Custom';
 import If from '../../components/generic/basics/If';
 import ScaledImage from '../../components/generic/images/ScaledImage';
 import ActionButtons from '../../components/profile/ActionButtons';
+import { usePrivateCollection } from '../../queryHooks/GetPrivateCollection';
+import { PrivateCollectionIssue } from '../../types/db/Backend';
 
 const styleSheet = StyleSheet.create({
   safeAreaView: {
@@ -39,15 +39,15 @@ const styleSheet = StyleSheet.create({
 export default function() {
   const { user, authHeaders } = useAuth();
   const { t } = useTranslation();
-  const { status, data } = usePrivateCollectionProfile(authHeaders);
+  const { status, data } = usePrivateCollection(authHeaders, 10);
 
-  function _renderItem({ item }: { item: IssueWithImages }) {
+  function _renderItem({ item }: { item: PrivateCollectionIssue }) {
     const height = 180;
-    if (item?.image_urls?.length) {
+    if (item?.issue?.images?.length) {
       return (
         <ScaledImage
           desiredHeight={height}
-          source={{ uri: item.image_urls[0].fullurl }}
+          source={{ uri: item.issue?.images[0].fullurl }}
           proxyOptions={'200x'}
           resizeMode="contain"
         />
@@ -63,7 +63,7 @@ export default function() {
           padding: 10,
           borderRadius: 10,
         }}>
-          <H4>{item.publication.title + ' ' + item.issuenumber}</H4>
+          <H4>{item.issue.publication.title + ' ' + item.issue.issuenumber}</H4>
         </View>
       );
     }
@@ -96,9 +96,9 @@ export default function() {
           <View style={styleSheet.privateCollectionView}>
             <H3>{t('profile.privateCollection')}</H3>
             <FlatList
-              data={data}
+              data={data?.pages[0]}
               renderItem={_renderItem}
-              keyExtractor={item => item.issuecode}
+              keyExtractor={item => item.issue_code}
               horizontal
               showsHorizontalScrollIndicator={false}
               style={styleSheet.privateCollectionList}

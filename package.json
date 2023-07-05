@@ -22,6 +22,7 @@
     "intl-pluralrules": "^2.0.0",
     "meilisearch": "^0.33.0",
     "metro-config": "^0.76.4",
+    "query-string": "^8.1.0",
     "react": "18.2.0",
     "react-i18next": "^12.3.1",
     "react-instantsearch-native": "^6.40.0",

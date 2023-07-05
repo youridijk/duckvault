@@ -2,10 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import settings from '../Settings';
 
 type PrivateCollectionResponse = {
-  issues: {
-    issue_code: string;
-    created_at: string;
-  }[];
   summary: string;
 };
 export default function usePrivateCollectionProfile(authHeaders: Record<string, string>) {
@@ -38,6 +34,13 @@ export default function usePrivateCollectionProfile(authHeaders: Record<string, 
       }
 
       return issuesDataResponseBody;
+    },
+  });
+
+  return useQuery({
+    queryKey: ['is'],
+    queryFn: () => {
+
     },
   });
 }
