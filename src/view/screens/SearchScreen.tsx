@@ -3,11 +3,11 @@ import { FlatList, SafeAreaView, View } from 'react-native';
 import Separator from '../../components/generic/Separator';
 import SearchBar from '../../components/searchscreen/SearchBar';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { SearchStackParamList } from '../../types/navigation/SearchStackParamList';
+import { SearchStackParamList } from '../../types/Navigation';
 import colors from '../../styles/Colors';
 import ContentTileFullWidth from '../../components/tiles/ContentTileFullWidth';
 
-import { searchWithLibrary } from '../../queryHooks/search/SearchIssues';
+import { searchWithLibrary } from '../../queryHooks/SearchIssues';
 import MeilisearchIssue from '../../types/meilisearch/MeilisearchIssue';
 import ErrorScreen from '../../components/data-fetching/ErrorScreen';
 import { useTranslation } from 'react-i18next';

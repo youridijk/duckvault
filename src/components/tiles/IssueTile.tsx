@@ -1,12 +1,12 @@
-import Issue from '../../types/Issue';
 import text from '../../styles/Text';
 import React, {useContext} from 'react';
 import {Dimensions, Image, Text, TouchableHighlight, View} from 'react-native';
 import {IssuesContext} from '../../state/IssuesContext';
 import Settings from '../../Settings';
 import colors from '../../styles/Colors';
+import { IssueWithImages } from '../../types/db/Custom';
 
-export default function (props: {issue: Issue}) {
+export default function (props: {issue: IssueWithImages}) {
   const [issuesList, setIssuesList] = useContext(IssuesContext);
 
   function removeIssue() {
@@ -17,7 +17,7 @@ export default function (props: {issue: Issue}) {
   }
 
   const {issue} = props;
-  const imageUrl = `${Settings.imageProxyUrl}/200x/${props.issue.image_urls}`;
+  const imageUrl = `${Settings.imageProxyUrl}/200x/${props.issue.image_urls[0].fullurl}`;
   return (
     <TouchableHighlight onPress={removeIssue} style={{marginHorizontal: 6}}>
       <View

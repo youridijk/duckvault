@@ -31,7 +31,9 @@ export interface Equivalent {
   issue: Issue;
 }
 
-
-const t: IssueWithImages = {};
-t.equiv_count;
-
+export interface IssueImage extends FullEntryUrl {
+  issuecode: string;
+}
+export interface LaravelIssue extends Issue {
+  images: IssueImage[];
+}

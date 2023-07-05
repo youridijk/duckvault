@@ -1,7 +1,7 @@
-import settings from '../../Settings';
-import MeilisearchResponse from '../../types/meilisearch/MeilisearchResponse';
-import MeilisearchIssue from '../../types/meilisearch/MeilisearchIssue';
-import meilisearch from '../../clients/Meilisearch';
+import settings from '../Settings';
+import MeilisearchResponse from '../types/meilisearch/MeilisearchResponse';
+import MeilisearchIssue from '../types/meilisearch/MeilisearchIssue';
+import meilisearch from '../clients/Meilisearch';
 import { SearchParams } from 'meilisearch';
 
 export async function searchWithLibrary(searchQuery: string, language?: string, filteredCategories?: string[]) {
