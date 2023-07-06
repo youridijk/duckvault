@@ -64,16 +64,15 @@ export default function() {
       {/*/>*/}
 
       <Tab.Screen
-        name="ProfileStack"
-        component={ProfileStack}
-        options={{ tabBarIcon: _profileIcon, title: t('navigation.profile') as string }}
-      />
-
-      <Tab.Screen
         name="SearchStack"
         component={SearchStack}
         options={{ tabBarIcon: _searchIcon, title: t('navigation.search') as string }}
+      />
 
+      <Tab.Screen
+        name="ProfileStack"
+        component={ProfileStack}
+        options={{ tabBarIcon: _profileIcon, title: t('navigation.profile') as string }}
       />
     </Tab.Navigator>
   );

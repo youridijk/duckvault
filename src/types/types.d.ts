@@ -27,9 +27,14 @@ export type ContentTileFullWidthProps = {
 };
 
 export type ActionButton = {
-  title: string;
+  title: ReactNode;
   icon: JSX.Element;
   routeName?: keyof ProfileStackParamList;
 };
 
 export type ActionButtonProps = PressableProps & ActionButton;
+
+export type PrivateCollectionButton = PressableProps & {
+  userOwnsIssueInitialValue: boolean;
+  issueCode: string;
+};
