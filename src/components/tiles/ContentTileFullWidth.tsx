@@ -18,8 +18,8 @@ export default function({
   imageDesiredHeight,
   imageFetchPriority,
 }: ContentTileFullWidthProps) {
-  if (!imageDesiredWidth && !imageDesiredHeight) {
-    throw Error('imageDesiredWidth or imageDesiredHeight must be defined');
+  if (imageUri && !imageDesiredWidth && !imageDesiredHeight) {
+    throw Error('imageDesiredWidth or imageDesiredHeight must be defined when image uri is provided');
   }
 
   function _main() {

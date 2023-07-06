@@ -13,6 +13,10 @@ const styleSheet = StyleSheet.create({
   safeAreaView: {
     margin: 8,
   },
+  usernameText: {
+    textAlign: 'center',
+    marginTop: 10,
+  },
   followersFollowingView: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -72,7 +76,7 @@ export default function() {
   function _render() {
     return (
       <SafeAreaView style={styleSheet.safeAreaView}>
-        <H2 style={{ textAlign: 'center', marginTop: 10 }}>{user?.username}</H2>
+        <H2 style={styleSheet.usernameText}>{user?.username}</H2>
 
         <View style={styleSheet.followersFollowingView}>
           <View style={styleSheet.followersFollowingSubViewSpacer} />
@@ -101,6 +105,7 @@ export default function() {
               keyExtractor={item => item.issue_code}
               horizontal
               showsHorizontalScrollIndicator={false}
+              scrollEnabled={((data?.pages[0].length ?? 0) > 2)}
               style={styleSheet.privateCollectionList}
               ItemSeparatorComponent={() => <View style={styleSheet.privateCollectionListSeparator} />}
             />

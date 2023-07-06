@@ -107,7 +107,7 @@ export default function(props: PropsWithChildren) {
       user,
       token: authToken,
       authStatus,
-      authHeaders: authToken ? {'Authorization': 'Bearer ' + authToken} : undefined,
+      authHeaders: authToken ? {'Authorization': 'Bearer ' + authToken, 'Accept': 'application/json'} : undefined,
       login,
       logout,
     }}>

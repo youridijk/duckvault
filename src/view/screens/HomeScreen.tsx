@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Button, FlatList, Text, View} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
 import ViewStyle from '../../styles/ViewStyle';
 import {IssuesContext} from '../../state/IssuesContext';
 import IssueTile from '../../components/tiles/IssueTile';

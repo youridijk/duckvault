@@ -19,7 +19,7 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: colors.black,
-    marginVertical: 10,
+    marginBottom: 10,
     borderRadius: 10,
   },
 });
@@ -28,7 +28,7 @@ type TabScreenProps = PropsWithChildren<{ title: string; component?: ReactNode }
 type TabViewProps = {
   activeBackgroundColor: string;
   backgroundColor: string;
-  children: (React.JSX.Element | null)[];
+  children: (JSX.Element | null)[];
 };
 
 export function TabView(props: TabViewProps) {
@@ -65,11 +65,7 @@ export function TabView(props: TabViewProps) {
 }
 
 export function TabScreen(props: TabScreenProps) {
-  return (
-    <>
-      {props.component == null ? props.children : props.component}
-    </>
-  );
+  return <>{props.component == null ? props.children : props.component}</>;
 }
 
 function SwitcherButton(props: PressableProps & { title: string }) {

@@ -22,7 +22,7 @@ export interface IssueWithImages extends Issue {
 // Issue type for the issue detail page
 export interface IssueDetailPageIssue extends IssueWithImages {
   entry: EntryWithImages[];
-  userOwnsIssue: boolean;
+  userOwnsIssue?: boolean;
 }
 
 export interface Equivalent {

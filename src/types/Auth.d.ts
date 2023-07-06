@@ -17,11 +17,15 @@ export interface User {
   updated_at: string;
 }
 
+export interface AutHeaders {
+  'Authorization': string;
+  'Accept': 'application/json';
+}
 
 export interface AuthContext<U> {
   user?: U;
   token?: string;
-  authHeaders?: {'Authorization': string};
+  authHeaders?: AutHeaders;
   login: (credentials: Credentials) => Promise<void>;
   authStatus: AuthStatus;
   logout: () => void;

@@ -1,10 +1,8 @@
-import { H3 } from '../../components/generic/Headings';
 import { usePrivateCollection } from '../../queryHooks/GetPrivateCollection';
 import useAuth from '../../state/auth/useAuth';
 import { PrivateCollectionIssue } from '../../types/db/Backend';
 import ContentTileFullWidth from '../../components/tiles/ContentTileFullWidth';
-import { Trans, useTranslation } from 'react-i18next';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, View } from 'react-native';
 import LoadingScreen from '../../components/data-fetching/LoadingScreen';
 import ErrorScreen from '../../components/data-fetching/ErrorScreen';
 import Separator from '../../components/generic/Separator';
@@ -40,6 +38,7 @@ export default function() {
           keyExtractor={item => item.issue_code}
           ItemSeparatorComponent={() => <Separator width={'96%'} />}
           onEndReached={() => fetchNextPage()}
+          style={{height: '100%'}}
         />
         <If statement={isFetchingNextPage}>
           <ActivityIndicator size={'large'} />
