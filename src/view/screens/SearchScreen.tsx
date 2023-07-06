@@ -11,6 +11,7 @@ import { searchWithLibrary } from '../../queryHooks/SearchIssues';
 import MeilisearchIssue from '../../types/meilisearch/MeilisearchIssue';
 import ErrorScreen from '../../components/data-fetching/ErrorScreen';
 import { useTranslation } from 'react-i18next';
+import FormattedData from '../../components/generic/FormattedData';
 
 type Props = NativeStackScreenProps<SearchStackParamList, 'Search'>;
 
@@ -63,7 +64,7 @@ export default function({ navigation }: Props) {
           item?.image_urls?.length ?
             <ContentTileFullWidth
               title={item.full_title}
-              secondText={item.filledoldestdate}
+              secondText={<FormattedData date={item.filledoldestdate} />}
               // disable images as this causes to many requests to Inducks
               // imageUri={item.image_urls[0].fullurl}
               imageDesiredWidth={100}

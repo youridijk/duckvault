@@ -1,13 +1,13 @@
 import { H2, H3, H4 } from '../../components/generic/Headings';
 import useAuth from '../../state/auth/useAuth';
 import { ActivityIndicator, FlatList, SafeAreaView, StyleSheet, View } from 'react-native';
-import colors from '../../styles/Colors';
 import { useTranslation } from 'react-i18next';
 import If from '../../components/generic/basics/If';
 import ScaledImage from '../../components/generic/images/ScaledImage';
 import ActionButtons from '../../components/profile/ActionButtons';
 import { usePrivateCollection } from '../../queryHooks/GetPrivateCollection';
 import { PrivateCollectionIssue } from '../../types/db/Backend';
+import IssueImageAlternative from '../../components/tiles/IssueImageAlternative';
 
 const styleSheet = StyleSheet.create({
   safeAreaView: {
@@ -39,7 +39,6 @@ const styleSheet = StyleSheet.create({
   },
 });
 
-
 export default function() {
   const { user, authHeaders } = useAuth();
   const { t } = useTranslation();
@@ -57,19 +56,7 @@ export default function() {
         />
       );
     } else {
-      return (
-        <View style={{
-          width: height / 1.3,
-          height: height,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: colors.grey,
-          padding: 10,
-          borderRadius: 10,
-        }}>
-          <H4>{item.issue.publication.title + ' ' + item.issue.issuenumber}</H4>
-        </View>
-      );
+      return <IssueImageAlternative height={height} aspectRatio={0.7} issue={item.issue} />;
     }
   }
 

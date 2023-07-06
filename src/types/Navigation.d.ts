@@ -21,3 +21,4 @@ export type ProfileStackParamList = {
 };
 
 export type IssueDetailScreenProps = NativeStackScreenProps<SearchStackParamList, 'IssueDetail'>;
+export type PrivateCollectionScreenProps = NativeStackScreenProps<ProfileStackParamList, 'PrivateCollection'>;
