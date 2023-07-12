@@ -3,6 +3,7 @@ import { AuthStatus } from './AuthStatus';
 export interface Credentials {
   username: string;
   password: string;
+  device_name: string;
 }
 
 export interface User {
@@ -17,7 +18,7 @@ export interface User {
   updated_at: string;
 }
 
-export interface AutHeaders {
+export interface AutHeaders extends Record<string, string> {
   'Authorization': string;
   'Accept': 'application/json';
 }
@@ -26,7 +27,7 @@ export interface AuthContext<U> {
   user?: U;
   token?: string;
   authHeaders?: AutHeaders;
-  login: <C>(credentials: C) => Promise<void>;
+  login: <B>(body: B) => Promise<void>;
   register: <B>(body: B) => Promise<C>;
   authStatus: AuthStatus;
   logout: () => void;

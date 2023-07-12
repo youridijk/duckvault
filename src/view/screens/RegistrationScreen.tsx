@@ -82,6 +82,7 @@ export default function({ navigation }: RegistrationScreenProps) {
     mutation.mutate({
       username,
       password,
+      device_name: 'React Native ' + (Math.random() + 1).toString(36).substring(7),
     });
   }
 

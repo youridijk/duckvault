@@ -36,14 +36,8 @@ export default function(props: PropsWithChildren) {
       });
   }, ['']);
 
-  async function login<C>(credentials: C): Promise<void> {
+  async function login<B>(body: B): Promise<void> {
     const url = `${settings.backendUrl}/auth/sanctum/login`;
-    const body = {
-      ...credentials,
-      // TODO real device name instead of random string
-      device_name: 'React Native ' + (Math.random() + 1).toString(36).substring(7),
-    };
-
     const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(body),
@@ -59,8 +53,8 @@ export default function(props: PropsWithChildren) {
       const user = await getUserData(token);
 
       setAuthToken(token);
-      setAuthStatus(AUTH_STATUS.AUTHENTICATED);
       setUser(user);
+      setAuthStatus(AUTH_STATUS.AUTHENTICATED);
       await storedAuthToken(token);
       return;
     }
