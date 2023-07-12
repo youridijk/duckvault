@@ -1,5 +1,5 @@
 import {
-  ActivityIndicator,
+  ActivityIndicator, Pressable,
   SafeAreaView,
   StyleSheet,
   TextInput,
@@ -50,7 +50,9 @@ export default function({ navigation }: LoginScreenProps) {
   const { login } = useAuth();
   const [username, setUsername] = useState('test'); // TODO DELETE
   const [password, setPassword] = useState('password');
+  const credentialsFilled = username !== '' && password !== '';
   const { t } = useTranslation();
+
   const mutation = useMutation<void, { message: string }, Credentials>(
     login<Credentials>,
     {
@@ -97,15 +99,16 @@ export default function({ navigation }: LoginScreenProps) {
       </If>
 
       <If statement={mutation.isError}>
-        <H3 style={{ textAlign: 'center' }}>{mutation.error?.message}</H3>
+        <H3 style={{ textAlign: 'center' }}>{t(mutation.error?.message as string, {keyPrefix: 'backendErrors'})}</H3>
       </If>
 
-      <TouchableOpacity
-        style={styles.button}
+      <Pressable
+        style={[styles.button, { backgroundColor: credentialsFilled ? styles.button.backgroundColor : colors.grey }]}
         onPress={loginImpl}
+        disabled={!credentialsFilled}
       >
         <H2 style={{ textAlign: 'center' }}>{t('input.login')}</H2>
-      </TouchableOpacity>
+      </Pressable>
       <View style={styles.spacerBottom} />
     </SafeAreaView>
   );

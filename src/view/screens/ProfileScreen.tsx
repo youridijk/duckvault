@@ -38,10 +38,15 @@ const styleSheet = StyleSheet.create({
   privateCollectionListSeparator: {
     width: 5,
   },
+  logoutButton: {
+    color: 'red',
+    fontWeight: 'normal',
+    textAlign: 'center',
+  },
 });
 
 export default function({ navigation }: ProfileScreenProps) {
-  const { user, authHeaders } = useAuth();
+  const { user, authHeaders, logout } = useAuth();
   const { t } = useTranslation();
   const { status, data } = usePrivateCollection(authHeaders, 12);
 
@@ -116,6 +121,11 @@ export default function({ navigation }: ProfileScreenProps) {
         </If>
 
         <ActionButtons />
+        <View style={{ height: 40 }} />
+
+        <Pressable onPress={logout}>
+          <H3 style={styleSheet.logoutButton}>{t('profile.logout')}</H3>
+        </Pressable>
       </SafeAreaView>
     );
   }

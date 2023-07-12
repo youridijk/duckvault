@@ -31,7 +31,11 @@
       "wishlist": "Wensenlijst",
       "favorites": "Favorieten",
       "lists": "Lijsten"
-    }
+    },
+    "logout": "Uitloggen"
+  },
+  "backendErrors": {
+    "Invalid credentials": "Verkeerde gebruikersnaam en/of wachtwoord"
   },
   "countryNames": {
     "United Arab Emirates": "Verenigde Arabische Emiraten",

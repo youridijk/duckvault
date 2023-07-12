@@ -31,7 +31,11 @@
       "wishlist": "Wishlist",
       "favorites": "Favorites",
       "lists": "Lists"
-    }
+    },
+    "logout": "Logout"
+  },
+  "backendErrors": {
+    "Invalid credentials": "Invalid username and/or password"
   },
   "countryNames": {
     "United Arab Emirates": "United Arab Emirates",
