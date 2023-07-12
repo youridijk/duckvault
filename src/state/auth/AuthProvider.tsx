@@ -5,6 +5,11 @@ import { User, Credentials } from '../../types/Auth';
 import { AUTH_STATUS, AuthStatus } from '../../types/AuthStatus';
 import { getStoredToken, storedAuthToken, deleteStoredAuthToken } from './Storage';
 
+type FetchError = {
+  status: number;
+  body: any;
+};
+
 export default function(props: PropsWithChildren) {
   const [user, setUser] = useState<User>();
   const [authToken, setAuthToken] = useState<string>();
@@ -20,8 +25,10 @@ export default function(props: PropsWithChildren) {
             setUser(user);
             setAuthStatus(AUTH_STATUS.AUTHENTICATED);
             return;
-          } catch (e) {
-            await deleteStoredAuthToken();
+          } catch (e: any) {
+            if (e.status === 401) {
+              await deleteStoredAuthToken();
+            }
           }
         }
 
@@ -99,7 +106,7 @@ export default function(props: PropsWithChildren) {
       return responseBody;
     }
 
-    return Promise.reject(responseBody);
+    return Promise.reject({ status: response.status, body: responseBody });
   }
 
   return (
