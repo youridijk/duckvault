@@ -52,7 +52,7 @@ export default function(props: PrivateCollectionButton) {
           return oldData ? { ...oldData, userOwnsIssue: !variables.userOwnsIssue } : oldData;
         },
       );
-      queryClient.invalidateQueries(['private-collection-me']);
+      queryClient.invalidateQueries(['private-collection-me', 12])
     },
     onError: function(error, variables) {
       // Revert on error

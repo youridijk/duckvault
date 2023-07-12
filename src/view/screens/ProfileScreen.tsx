@@ -1,6 +1,6 @@
 import { H2, H3, H4 } from '../../components/generic/Headings';
 import useAuth from '../../state/auth/useAuth';
-import { ActivityIndicator, FlatList, SafeAreaView, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, FlatList, Pressable, SafeAreaView, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import If from '../../components/generic/basics/If';
 import ScaledImage from '../../components/generic/images/ScaledImage';
@@ -8,6 +8,7 @@ import ActionButtons from '../../components/profile/ActionButtons';
 import { usePrivateCollection } from '../../queryHooks/GetPrivateCollection';
 import { PrivateCollectionIssue } from '../../types/db/Backend';
 import IssueImageAlternative from '../../components/tiles/IssueImageAlternative';
+import { ProfileScreenProps } from '../../types/Navigation';
 
 const styleSheet = StyleSheet.create({
   safeAreaView: {
@@ -39,24 +40,39 @@ const styleSheet = StyleSheet.create({
   },
 });
 
-export default function() {
+export default function({ navigation }: ProfileScreenProps) {
   const { user, authHeaders } = useAuth();
   const { t } = useTranslation();
-  const { status, data } = usePrivateCollection(authHeaders, 10);
+  const { status, data } = usePrivateCollection(authHeaders, 12);
+
+  function _onFlatListItemPressed({ issue }: PrivateCollectionIssue) {
+    navigation.navigate('IssueDetail', {
+      issue: {
+        issueCode: issue.issuecode,
+        title: issue.title ?? issue.publication.title + ' ' + issue.issuenumber,
+      },
+    });
+  }
 
   function _renderItem({ item }: { item: PrivateCollectionIssue }) {
     const height = 180;
     if (item?.issue?.images?.length) {
       return (
-        <ScaledImage
-          desiredHeight={height}
-          source={{ uri: item.issue?.images[0].fullurl }}
-          proxyOptions={'200x'}
-          resizeMode="contain"
-        />
+        <Pressable>
+          <ScaledImage
+            desiredHeight={height}
+            source={{ uri: item.issue?.images[0].fullurl }}
+            proxyOptions={'200x'}
+            resizeMode="contain"
+          />
+        </Pressable>
       );
     } else {
-      return <IssueImageAlternative height={height} aspectRatio={0.7} issue={item.issue} />;
+      return (
+        <Pressable onPress={() => _onFlatListItemPressed(item)}>
+          <IssueImageAlternative height={height} aspectRatio={0.7} issue={item.issue} />
+        </Pressable>
+      );
     }
   }
 

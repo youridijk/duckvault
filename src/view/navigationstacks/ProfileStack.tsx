@@ -4,6 +4,7 @@ import { ProfileStackParamList } from '../../types/Navigation';
 import stackScreenOptions from '../../options/StackScreenOptions';
 import { useTranslation } from 'react-i18next';
 import PrivateCollectionScreen from '../screens/PrivateCollectionScreen';
+import IssueDetailScreen from '../screens/IssueDetailScreen';
 
 export default function() {
   const Stack = createNativeStackNavigator<ProfileStackParamList>();
@@ -24,6 +25,12 @@ export default function() {
         name="PrivateCollection"
         component={PrivateCollectionScreen}
         options={{ title: t('navigation.privateCollection') as string }}
+      />
+
+      <Stack.Screen
+        name="IssueDetail"
+        component={IssueDetailScreen}
+        options={{title: ''}}
       />
     </Stack.Navigator>
   );

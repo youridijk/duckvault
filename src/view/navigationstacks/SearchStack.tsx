@@ -5,13 +5,10 @@ import SearchScreen from '../screens/SearchScreen';
 import StackScreenOptions from '../../options/StackScreenOptions';
 import { useTranslation } from 'react-i18next';
 import React from 'react';
-import { Button } from 'react-native';
-import useAuth from '../../state/auth/useAuth';
 
 export default function() {
   const Stack = createNativeStackNavigator<SearchStackParamList>();
   const { t } = useTranslation();
-  const { logout } = useAuth();
 
   return (
     <Stack.Navigator
@@ -22,18 +19,16 @@ export default function() {
     >
       <Stack.Screen
         name="Search"
+        component={SearchScreen}
         options={{
           title: t('navigation.search') as string,
-          headerRight: () => (
-            <Button
-              onPress={logout}
-              title="Logout"
-            />
-          ),
         }}
-        component={SearchScreen}
       />
-      <Stack.Screen name="IssueDetail" component={IssueDetailScreen} />
+      <Stack.Screen
+        name="IssueDetail"
+        component={IssueDetailScreen}
+        options={{title: ''}}
+      />
     </Stack.Navigator>
   );
 }

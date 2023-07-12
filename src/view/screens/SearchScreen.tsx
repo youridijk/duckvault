@@ -36,6 +36,8 @@ export default function({ navigation }: Props) {
     search(searchQuery);
   }, [searchQuery]);
 
+
+
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerSearchBarOptions: {
@@ -45,6 +47,7 @@ export default function({ navigation }: Props) {
         placeholder: t('input.searchBar') as string,
         hideWhenScrolling: false,
       },
+
     });
   }, [navigation]);
 
@@ -58,28 +61,15 @@ export default function({ navigation }: Props) {
   }
 
   function _renderItem({ item }: { item: MeilisearchIssue }) {
-    return (
-      <>
-        {
-          item?.image_urls?.length ?
-            <ContentTileFullWidth
-              title={item.full_title}
-              secondText={<FormattedData date={item.filledoldestdate} />}
-              // disable images as this causes to many requests to Inducks
-              // imageUri={item.image_urls[0].fullurl}
-              imageDesiredWidth={100}
-              imageProxyOptions={'200x'}
-              onPress={() => onPress(item)}
-            />
-            :
-            <ContentTileFullWidth
-              title={item.full_title}
-              secondText={item.filledoldestdate}
-              onPress={() => onPress(item)}
-            />
-        }
-      </>
-    );
+    return <ContentTileFullWidth
+      title={item.full_title}
+      secondText={<FormattedData date={item.filledoldestdate} />}
+      // disable images as this causes to many requests to Inducks
+      // imageUri={item.image_urls[0].fullurl}
+      imageDesiredWidth={100}
+      imageProxyOptions={'200x'}
+      onPress={() => onPress(item)}
+    />;
   }
 
   function IssuesList() {

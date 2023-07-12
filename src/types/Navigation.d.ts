@@ -1,7 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export type SearchStackParamList = {
-  Search: undefined;
+type IssueDetailParamList = {
   IssueDetail: {
     issue: {
       issueCode: string;
@@ -10,15 +9,20 @@ export type SearchStackParamList = {
   };
 };
 
+export type SearchStackParamList = IssueDetailParamList & {
+  Search: undefined;
+};
+
 export type LoginStackParamList = {
   Login: undefined;
   TabBar: undefined;
 };
 
-export type ProfileStackParamList = {
+export type ProfileStackParamList = IssueDetailParamList & {
   Profile: undefined;
   PrivateCollection: undefined;
 };
 
 export type IssueDetailScreenProps = NativeStackScreenProps<SearchStackParamList, 'IssueDetail'>;
+export type ProfileScreenProps = NativeStackScreenProps<ProfileStackParamList, 'Profile'>;
 export type PrivateCollectionScreenProps = NativeStackScreenProps<ProfileStackParamList, 'PrivateCollection'>;
