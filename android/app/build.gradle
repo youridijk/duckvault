@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.inducks"
+    namespace "com.duckvault"
     defaultConfig {
-        applicationId "com.inducks"
+        applicationId "com.duckvault"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
