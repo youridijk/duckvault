@@ -12,9 +12,11 @@
   "input": {
     "username": "Username",
     "password": "Password",
+    "passwordRepeat": "Repeat password",
     "email": "E-mail",
     "searchBar": "Type something to search",
-    "login": "Login"
+    "login": "Login",
+    "register": "Register"
   },
   "loading": "Loading...",
   "tappedIssues": "Your tapped issues",
@@ -34,8 +36,17 @@
     },
     "logout": "Logout"
   },
+  "account": {
+    "createAccount": "Create an account",
+    "loginToAccount": "Login to your account",
+    "passwordsNotEqual": "Your passwords aren't the same",
+    "or": "or"
+  },
   "backendErrors": {
-    "Invalid credentials": "Invalid username and/or password"
+    "Invalid credentials": "Invalid username and/or password",
+    "The username has already been taken.": "The username has already been taken",
+    "The password field must be between 4 and 255 characters.": "The password must be between 4 and 255 characters long",
+    "The username field must be between 4 and 255 characters.": "The username must be between 4 and 255 characters long"
   },
   "countryNames": {
     "United Arab Emirates": "United Arab Emirates",

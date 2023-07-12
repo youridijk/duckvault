@@ -1,5 +1,5 @@
 import { PropsWithChildren, useEffect, useState } from 'react';
-import AuthContext from './AuthContext';
+import { authContext } from './useAuth';
 import settings from '../../Settings';
 import { User, Credentials } from '../../types/Auth';
 import { AUTH_STATUS, AuthStatus } from '../../types/AuthStatus';
@@ -68,6 +68,29 @@ export default function(props: PropsWithChildren) {
     return Promise.reject(responseBody);
   }
 
+
+  async function register<B>(body: B): Promise<B> {
+    const url = `${settings.backendUrl}/auth/jwt/register`;
+
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    });
+
+    const responseBody = await response.json();
+
+    if (response.ok) {
+      console.log(responseBody);
+      return responseBody;
+    }
+
+    return Promise.reject(responseBody);
+  }
+
   async function logout(): Promise<void> {
     const url = `${settings.backendUrl}/auth/sanctum/logout`;
     const response = await fetch(url, {
@@ -109,15 +132,16 @@ export default function(props: PropsWithChildren) {
   }
 
   return (
-    <AuthContext.Provider value={{
+    <authContext.Provider value={{
       user,
       token: authToken,
       authStatus,
       authHeaders: authToken ? {'Authorization': 'Bearer ' + authToken, 'Accept': 'application/json'} : undefined,
       login,
+      register,
       logout,
     }}>
       {props.children}
-    </AuthContext.Provider>
+    </authContext.Provider>
   );
 }

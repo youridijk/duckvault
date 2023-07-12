@@ -26,7 +26,8 @@ export interface AuthContext<U> {
   user?: U;
   token?: string;
   authHeaders?: AutHeaders;
-  login: (credentials: Credentials) => Promise<void>;
+  login: <C>(credentials: C) => Promise<void>;
+  register: <B>(body: B) => Promise<C>;
   authStatus: AuthStatus;
   logout: () => void;
 }

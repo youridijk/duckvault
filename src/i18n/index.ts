@@ -17,4 +17,5 @@ const resources = {
 
 i18n.use(ReactNativeLanguageDetector).use(initReactI18next).init({
   resources,
+  fallbackLng: 'en',
 });

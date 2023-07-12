@@ -14,7 +14,8 @@
     "password": "Wachtwoord",
     "email": "E-mail",
     "searchBar": "Typ iets om te zoeken",
-    "login": "Login"
+    "login": "Login",
+    "register": "Registreren"
   },
   "loading": "Laden...",
   "tappedIssues": "Jouw getapte uitgaven",
@@ -34,8 +35,17 @@
     },
     "logout": "Uitloggen"
   },
+  "account": {
+    "createAccount": "Maak een account aan",
+    "loginToAccount": "Login op jouw account",
+    "passwordsNotEqual": "De wachtwoorden komen niet overeen",
+    "or": "of"
+  },
   "backendErrors": {
-    "Invalid credentials": "Verkeerde gebruikersnaam en/of wachtwoord"
+    "Invalid credentials": "Verkeerde gebruikersnaam en/of wachtwoord",
+    "The username has already been taken.": "Deze gebruikersnaam wordt al gebruikt",
+    "The password field must be between 4 and 255 characters.": "Het wachtwoord moet tussen de 4 en 255 characters lang zijn",
+    "The username field must be between 4 and 255 characters.": "Jouw gebruikersnaam moet tussen de 4 en 255 characters lang zijn"
   },
   "countryNames": {
     "United Arab Emirates": "Verenigde Arabische Emiraten",

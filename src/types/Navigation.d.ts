@@ -15,6 +15,7 @@ export type SearchStackParamList = IssueDetailParamList & {
 
 export type LoginStackParamList = {
   Login: undefined;
+  Registration: undefined;
   TabBar: undefined;
 };
 
@@ -24,6 +25,7 @@ export type ProfileStackParamList = IssueDetailParamList & {
 };
 
 export type LoginScreenProps = NativeStackScreenProps<LoginStackParamList, 'Login'>;
+export type RegistrationScreenProps = NativeStackScreenProps<LoginStackParamList, 'Registration'>;
 export type TabBarProps = NativeStackScreenProps<LoginStackParamList, 'TabBar'>;
 export type IssueDetailScreenProps = NativeStackScreenProps<IssueDetailParamList, 'IssueDetail'>;
 export type ProfileScreenProps = NativeStackScreenProps<ProfileStackParamList, 'Profile'>;

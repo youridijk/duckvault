@@ -3,11 +3,10 @@ import {
   SafeAreaView,
   StyleSheet, Text,
   TextInput,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import { H2, H3, H4 } from '../../components/generic/Headings';
-import { LoginScreenProps } from '../../types/Navigation';
+import { RegistrationScreenProps } from '../../types/Navigation';
 import colors from '../../styles/Colors';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,8 +14,6 @@ import { useMutation } from '@tanstack/react-query';
 import If from '../../components/generic/basics/If';
 import { Credentials } from '../../types/Auth';
 import useAuth from '../../state/auth/useAuth';
-import Separator from '../../components/generic/Separator';
-import hairlineWidth = StyleSheet.hairlineWidth;
 
 
 const styles = StyleSheet.create({
@@ -33,10 +30,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   spacerTop: {
-    flex: 2,
+    flex: 3,
   },
   spacerBottom: {
-    flex: 3,
+    flex: 4,
   },
   button: {
     backgroundColor: colors.secondary,
@@ -53,43 +50,34 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
   },
-  choiceView: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: 30,
-    marginVertical: 15,
-  },
-  choiceText: {
-    flex: 1,
-    textAlign: 'center',
-  },
-  choiceLineView: {
-    flex: 2,
-    borderBottomWidth: hairlineWidth,
-    borderColor: colors.grey,
-  },
   buttonText: {
     color: colors.white,
     textAlign: 'center',
     fontSize: 21,
     fontWeight: 'bold',
-  },
+  }
 });
 
 
-export default function({ navigation }: LoginScreenProps) {
-  const { login } = useAuth();
-  const [username, setUsername] = useState('test'); // TODO DELETE
-  const [password, setPassword] = useState('password');
-  const credentialsFilled = username !== '' && password !== '';
+export default function({ navigation }: RegistrationScreenProps) {
+  const { login, register } = useAuth();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordRepeat, setPasswordRepeat] = useState('');
+  const passwordsEqual = password === passwordRepeat;
+  const credentialsValid = username !== '' && password !== '' && passwordsEqual;
   const { t } = useTranslation();
 
   const mutation = useMutation<void, { message: string }, Credentials>(
-    login<Credentials>,
+    {
+      mutationFn: async function(variables) {
+        await register(variables);
+        await login(variables);
+      },
+    },
   );
 
-  function loginImpl() {
+  function registerImpl() {
     mutation.mutate({
       username,
       password,
@@ -99,7 +87,7 @@ export default function({ navigation }: LoginScreenProps) {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.spacerTop} />
-      <H2 style={styles.title}>{t('account.loginToAccount')}</H2>
+      <H2 style={styles.title}>{t('account.createAccount')}</H2>
       <TextInput
         style={styles.textInput}
         placeholder={t('input.username') as string}
@@ -121,6 +109,22 @@ export default function({ navigation }: LoginScreenProps) {
         inputMode="text"
         secureTextEntry={true}
       />
+      <TextInput
+        style={styles.textInput}
+        placeholder={t('input.passwordRepeat') as string}
+        value={passwordRepeat}
+        onChangeText={setPasswordRepeat}
+        autoCorrect={false}
+        autoCapitalize="none"
+        textContentType="password"
+        inputMode="text"
+        secureTextEntry={true}
+      />
+
+      <If statement={!passwordsEqual && passwordRepeat !== ''}>
+        <H3 style={styles.error}>{t('account.passwordsNotEqual')}</H3>
+      </If>
+
       <If statement={mutation.isLoading}>
         <ActivityIndicator size="large" />
       </If>
@@ -130,20 +134,9 @@ export default function({ navigation }: LoginScreenProps) {
       </If>
 
       <Pressable
-        style={[styles.button, { backgroundColor: credentialsFilled ? styles.button.backgroundColor : colors.grey }]}
-        onPress={loginImpl}
-        disabled={!credentialsFilled}
-      >
-        <Text style={styles.buttonText}>{t('input.login')}</Text>
-      </Pressable>
-      <View style={styles.choiceView}>
-        <View style={styles.choiceLineView} />
-        <H4 style={styles.choiceText}>{t('account.or')}</H4>
-        <View style={styles.choiceLineView} />
-      </View>
-      <Pressable
-        style={[styles.button, { marginTop: 0 }]}
-        onPress={() => navigation.navigate('Registration')}
+        style={[styles.button, { backgroundColor: credentialsValid ? styles.button.backgroundColor : colors.grey }]}
+        onPress={registerImpl}
+        disabled={!credentialsValid}
       >
         <Text style={styles.buttonText}>{t('input.register')}</Text>
       </Pressable>
