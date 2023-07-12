@@ -9,7 +9,7 @@ export default {
   meilisearchUrl: 'https://meilisearch.dijk.cc',
   // meilisearchUrl: 'https://meilisearch.nuc.dijk.cc',
   // meilisearchUrl: 'http://localhost:7700',
-  backendUrl: 'http://localhost:8000/api',
-  // backendUrl: 'https://inducks.dijk.cc/api/laravel',
+  // backendUrl: 'http://localhost:8000/api',
+  backendUrl: 'https://inducks.dijk.cc/api/laravel',
   // backendUrl: 'https://inducks.nuc.dijk.cc/api/laravel',
 };

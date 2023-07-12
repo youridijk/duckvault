@@ -14,6 +14,7 @@ import { useMutation } from '@tanstack/react-query';
 import If from '../../components/generic/basics/If';
 import { Credentials } from '../../types/Auth';
 import useAuth from '../../state/auth/useAuth';
+import ButtonSeparator from '../../components/generic/ButtonSeparator';
 
 
 const styles = StyleSheet.create({
@@ -139,6 +140,13 @@ export default function({ navigation }: RegistrationScreenProps) {
         disabled={!credentialsValid}
       >
         <Text style={styles.buttonText}>{t('input.register')}</Text>
+      </Pressable>
+      <ButtonSeparator />
+      <Pressable
+        style={[styles.button, {marginTop: 0}]}
+        onPress={() => navigation.goBack()}
+      >
+        <Text style={styles.buttonText}>{t('input.login')}</Text>
       </Pressable>
       <View style={styles.spacerBottom} />
     </SafeAreaView>

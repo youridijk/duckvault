@@ -17,6 +17,7 @@ import { Credentials } from '../../types/Auth';
 import useAuth from '../../state/auth/useAuth';
 import Separator from '../../components/generic/Separator';
 import hairlineWidth = StyleSheet.hairlineWidth;
+import ButtonSeparator from '../../components/generic/ButtonSeparator';
 
 
 const styles = StyleSheet.create({
@@ -53,22 +54,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
   },
-  choiceView: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: 30,
-    marginVertical: 15,
-  },
-  choiceText: {
-    flex: 1,
-    textAlign: 'center',
-  },
-  choiceLineView: {
-    flex: 2,
-    borderBottomWidth: hairlineWidth,
-    borderColor: colors.grey,
-  },
+
   buttonText: {
     color: colors.white,
     textAlign: 'center',
@@ -80,8 +66,8 @@ const styles = StyleSheet.create({
 
 export default function({ navigation }: LoginScreenProps) {
   const { login } = useAuth();
-  const [username, setUsername] = useState('test'); // TODO DELETE
-  const [password, setPassword] = useState('password');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const credentialsFilled = username !== '' && password !== '';
   const { t } = useTranslation();
 
@@ -136,11 +122,7 @@ export default function({ navigation }: LoginScreenProps) {
       >
         <Text style={styles.buttonText}>{t('input.login')}</Text>
       </Pressable>
-      <View style={styles.choiceView}>
-        <View style={styles.choiceLineView} />
-        <H4 style={styles.choiceText}>{t('account.or')}</H4>
-        <View style={styles.choiceLineView} />
-      </View>
+      <ButtonSeparator />
       <Pressable
         style={[styles.button, { marginTop: 0 }]}
         onPress={() => navigation.navigate('Registration')}
