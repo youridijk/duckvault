@@ -14,6 +14,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-DuckVault-DuckVaultTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-DuckVault-DuckVaultTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C771F9632A5F1801005CA1D5 /* nl.strings in Resources */ = {isa = PBXBuildFile; fileRef = C771F9652A5F1801005CA1D5 /* nl.strings */; };
+		C771F9682A5F1814005CA1D5 /* en.strings in Resources */ = {isa = PBXBuildFile; fileRef = C771F96A2A5F1814005CA1D5 /* en.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,9 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-DuckVault.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DuckVault.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DuckVault/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-DuckVault-DuckVaultTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuckVault-DuckVaultTests.release.xcconfig"; path = "Target Support Files/Pods-DuckVault-DuckVaultTests/Pods-DuckVault-DuckVaultTests.release.xcconfig"; sourceTree = "<group>"; };
+		C771F95A2A5F1791005CA1D5 /* Localizations */ = {isa = PBXFileReference; lastKnownFileType = text; path = Localizations; sourceTree = SOURCE_ROOT; };
+		C771F9642A5F1801005CA1D5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/nl.strings; sourceTree = "<group>"; };
+		C771F9692A5F1814005CA1D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/en.strings; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -116,6 +121,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C771F95E2A5F17C7005CA1D5 /* Localizations */,
 				13B07FAE1A68108700A75B9A /* DuckVault */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* DuckVaultTests */,
@@ -140,12 +146,22 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				C771F95A2A5F1791005CA1D5 /* Localizations */,
 				3B4392A12AC88292D35C810B /* Pods-DuckVault.debug.xcconfig */,
 				5709B34CF0A7D63546082F79 /* Pods-DuckVault.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-DuckVault-DuckVaultTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-DuckVault-DuckVaultTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C771F95E2A5F17C7005CA1D5 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				C771F9652A5F1801005CA1D5 /* nl.strings */,
+				C771F96A2A5F1814005CA1D5 /* en.strings */,
+			);
+			path = Localizations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				C771F9682A5F1814005CA1D5 /* en.strings in Resources */,
+				C771F9632A5F1801005CA1D5 /* nl.strings in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +446,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		C771F9652A5F1801005CA1D5 /* nl.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C771F9642A5F1801005CA1D5 /* nl */,
+			);
+			name = nl.strings;
+			sourceTree = "<group>";
+		};
+		C771F96A2A5F1814005CA1D5 /* en.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C771F9692A5F1814005CA1D5 /* en */,
+			);
+			name = en.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -490,6 +527,7 @@
 				DEVELOPMENT_TEAM = 4VTB4459DD;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DuckVault/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DuckVaut;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,7 +554,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4VTB4459DD;
-				INFOPLIST_FILE = inducks/Info.plist;
+				INFOPLIST_FILE = DuckVault/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DuckVaut;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
