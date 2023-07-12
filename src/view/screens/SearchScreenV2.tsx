@@ -1,6 +1,6 @@
 import settings from '../../Settings';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { SearchStackParamList } from '../../types/navigation/SearchStackParamList';
+import { SearchStackParamList } from '../../types/Navigation';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 import MeilisearchIssue from '../../types/meilisearch/MeilisearchIssue';
 import { InstantSearch, connectSearchBox, connectInfiniteHits, Configure } from 'react-instantsearch-native';

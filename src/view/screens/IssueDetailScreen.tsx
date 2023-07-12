@@ -71,6 +71,7 @@ export default function({ route, navigation }: IssueDetailScreenProps) {
             <H2>{data!.title}</H2>
             <H4>{data!.publication?.title + ' ' + data!.issuenumber}</H4>
             <P>{data!.oldestdate}</P>
+            <P>{data!.issuecode}</P>
           </View>
         </View>
 

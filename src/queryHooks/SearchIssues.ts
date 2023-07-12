@@ -9,7 +9,7 @@ export async function searchWithLibrary(searchQuery: string, language?: string, 
     sort: ['oldestdate:desc', 'filledoldestdate:desc'],
     filter: searchQuery === '' ?
       ['languagecode = ' + language, 'filledoldestdate != 9999-12-31', 'filter_categories NOT IN ' + JSON.stringify(filteredCategories)] :
-      ['issuerangecode IS NULL'],
+      [],
   };
 
   return meilisearch
@@ -29,7 +29,7 @@ async function searchWithFetch(searchQuery: string, language?: string): Promise<
 
   const body = {
     q: searchQuery,
-    filter: searchQuery === '' ? ['languagecode = ' + language, 'filledoldestdate != 9999-12-31'] : ['issuerangecode IS NULL'],
+    filter: searchQuery === '' ? ['languagecode = ' + language, 'filledoldestdate != 9999-12-31'] : [],
     sort: ['oldestdate:desc', 'filledoldestdate:desc'],
   };
 
