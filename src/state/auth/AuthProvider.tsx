@@ -36,11 +36,10 @@ export default function(props: PropsWithChildren) {
       });
   }, ['']);
 
-  async function login({ email, password }: Credentials): Promise<void> {
+  async function login<C>(credentials: C): Promise<void> {
     const url = `${settings.backendUrl}/auth/sanctum/login`;
     const body = {
-      email,
-      password,
+      ...credentials,
       // TODO real device name instead of random string
       device_name: 'React Native ' + (Math.random() + 1).toString(36).substring(7),
     };

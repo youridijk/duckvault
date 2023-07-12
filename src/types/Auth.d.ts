@@ -1,7 +1,7 @@
 import { AuthStatus } from './AuthStatus';
 
 export interface Credentials {
-  email: string;
+  username: string;
   password: string;
 }
 

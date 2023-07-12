@@ -23,6 +23,8 @@ export type ProfileStackParamList = IssueDetailParamList & {
   PrivateCollection: undefined;
 };
 
-export type IssueDetailScreenProps = NativeStackScreenProps<SearchStackParamList, 'IssueDetail'>;
+export type LoginScreenProps = NativeStackScreenProps<LoginStackParamList, 'Login'>;
+export type TabBarProps = NativeStackScreenProps<LoginStackParamList, 'TabBar'>;
+export type IssueDetailScreenProps = NativeStackScreenProps<IssueDetailParamList, 'IssueDetail'>;
 export type ProfileScreenProps = NativeStackScreenProps<ProfileStackParamList, 'Profile'>;
 export type PrivateCollectionScreenProps = NativeStackScreenProps<ProfileStackParamList, 'PrivateCollection'>;
