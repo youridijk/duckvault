@@ -1,15 +1,7 @@
+import '@env';
 export default {
-  imageProxyUrl: 'https://inducks.dijk.cc/imageproxy',
-  // imageProxyUrl: 'https://inducks.nuc.dijk.cc/imageproxy',
-  // imageProxyUrl: "http://localhost:8205",
-  // imageProxyUrl: "http://localhost:8080",
-  // postgrestUrl: "http://localhost:3000",
-  postgrestUrl: 'https://inducks.dijk.cc/api/postgrest',
-  // postgrestUrl: 'https://inducks.nuc.dijk.cc/api/postgrest',
-  meilisearchUrl: 'https://meilisearch.dijk.cc',
-  // meilisearchUrl: 'https://meilisearch.nuc.dijk.cc',
-  // meilisearchUrl: 'http://localhost:7700',
-  // backendUrl: 'http://localhost:8000/api',
-  backendUrl: 'https://inducks.dijk.cc/api/laravel',
-  // backendUrl: 'https://inducks.nuc.dijk.cc/api/laravel',
+  imageProxyUrl: process.env.IMAGE_PROXY_URL ?? 'https://duckvault.dijk.cc/imageproxy',
+  postgrestUrl: process.env.POSTGREST_URL ?? 'https://duckvault.dijk.cc/api/postgrest',
+  meilisearchUrl: process.env.MEILISEARCH_URL ?? 'https://meilisearch.dijk.cc',
+  backendUrl: process.env.BACKEND_URL ?? 'https://duckvault.dijk.cc/api/laravel',
 };

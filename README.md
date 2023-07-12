@@ -4,6 +4,12 @@ this app allows you to keep track of your private collection of Disney Comics.
 Simply search for an issue title, publication name, publication category, 
 or anything else and view all information about an issue and add to your private collection.
 
+you can see the app in action in [this demo video](https://duckvault.dijk.cc/downloads/demo.mp4).
+
+<video width="196" height="426" controls>
+  <source src="https://duckvault.dijk.cc/downloads/demo.mp4" type="video/mp4">
+</video>
+
 ## Status
 This app is still heavily work in progress, but the following features are stable:
 - Search engine: Search issues based on:
@@ -45,6 +51,51 @@ Some of the features that are planned to be added:
 - Add working wishlist
 - Add working favorites list
 - Add working custom lists
+
+## Getting it up and running
+### Installation
+Install JavaScript dependencies with Yarn:
+```shell
+yarn
+```
+
+Install iOS pods:
+```shell 
+yarn pod:install
+```
+
+### Run in development mode
+Start Watchman:
+```shell
+yarn start
+```
+
+Run the app in development mode on iOS:
+```shell
+yarn ios
+```
+
+Run the app in development mode on Android:
+```shell
+yarn android
+```
+
+### Release
+To run the app in release mode on iOS:
+```shell
+yarn ios:release
+```
+
+or without running the `pod:install`
+
+```shell
+yarn ios --mode=Release
+```
+
+To create an APK file:
+```shell
+cd android && ./gradlew
+```
 
 ## Contributing
 If you want to help building this app, feel free to open up an issue or PR. 
