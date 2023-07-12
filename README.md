@@ -4,11 +4,12 @@ this app allows you to keep track of your private collection of Disney Comics.
 Simply search for an issue title, publication name, publication category, 
 or anything else and view all information about an issue and add to your private collection.
 
-you can see the app in action in [this demo video](https://duckvault.dijk.cc/downloads/demo.mp4).
+You can see the app in action in [this demo video](https://duckvault.dijk.cc/downloads/demo.mp4).
 
 <video width="196" height="426" controls>
   <source src="https://duckvault.dijk.cc/downloads/demo.mp4" type="video/mp4">
 </video>
+
 
 ## Status
 This app is still heavily work in progress, but the following features are stable:
